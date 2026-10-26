@@ -1,0 +1,24 @@
+# Nature Spotters
+
+> Nature Spotters is a free, browser-based nature journal for children and Muslim families, made by Ummah Apps. URL: https://nature-spotters.ummahapps.ai/
+
+## What it does
+
+- Log finds in six groups: plants and trees, animals, bugs, fungi, sky and weather, rocks and water.
+- Add a photo from the camera or gallery, a place, notes and a date.
+- "What did it make you say?" on every find, with one-tap Subhanallah and Alhamdulillah.
+- Seasonal "look out for" ideas, a finds-by-month chart, a board for each season and a table of what was seen when.
+- "Watch it change": photos of the same named spot line up in date order and play as a time-lapse.
+- Set your own town, your favourite places and the northern or southern half of the world, so seasons match where you live.
+- Shows the Hijri date next to the normal date, with a one-day adjustment to match the local masjid.
+- Opens with "Bismillah, let's explore" and Surah Ash-Shura 42:29 with its English translation.
+- Free, no account, no ads. Finds and photos are stored only in the browser on the user's device.
+
+## Who it is for
+
+Children, home-educating families, Islamic schools and weekend madrasahs who want to get outside and notice the signs of Allah in creation.
+
+## Links
+
+- App: https://nature-spotters.ummahapps.ai/
+- Publisher: https://ummahapps.ai/

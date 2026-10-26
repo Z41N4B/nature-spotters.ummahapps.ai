@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nature Spotters – A Nature Journal for Muslim Families | Ummah Apps</title>
+<meta name="description" content="A free nature journal for children and families. Log the plants, animals, bugs and skies you spot, add photos, watch the seasons change, and remember Allah's signs with Subhanallah and Alhamdulillah. Works anywhere in the world, no sign-up.">
+<meta name="keywords" content="nature journal, nature spotting, kids nature diary, Muslim kids, Islamic home education, homeschool nature study, seasons, signs of Allah, Subhanallah, Alhamdulillah, Hijri date, Ummah Apps">
+<meta name="author" content="Ummah Apps">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="application-name" content="Nature Spotters">
+<meta name="apple-mobile-web-app-title" content="Nature Spotters">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#EFF7FC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1B2A" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://nature-spotters.ummahapps.ai/">
+<link rel="alternate" hreflang="en" href="https://nature-spotters.ummahapps.ai/">
+<link rel="alternate" hreflang="x-default" href="https://nature-spotters.ummahapps.ai/">
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ummah Apps">
+<meta property="og:title" content="Nature Spotters – A Nature Journal for Muslim Families">
+<meta property="og:description" content="Log what you spot outside, add photos, watch the seasons change and say Subhanallah. Free, in your browser.">
+<meta property="og:url" content="https://nature-spotters.ummahapps.ai/">
+<meta property="og:image" content="https://nature-spotters.ummahapps.ai/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nature Spotters, a child's drawing of a tree">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nature Spotters – A Nature Journal for Muslim Families">
+<meta name="twitter:description" content="Log what you spot outside, add photos, watch the seasons change and say Subhanallah. Free, in your browser.">
+<meta name="twitter:image" content="https://nature-spotters.ummahapps.ai/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ummahapps.ai/#org",
+      "name": "Ummah Apps",
+      "url": "https://ummahapps.ai/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nature-spotters.ummahapps.ai/#site",
+      "name": "Nature Spotters",
+      "url": "https://nature-spotters.ummahapps.ai/",
+      "inLanguage": "en",
+      "publisher": {"@id": "https://ummahapps.ai/#org"}
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://nature-spotters.ummahapps.ai/#app",
+      "name": "Nature Spotters",
+      "url": "https://nature-spotters.ummahapps.ai/",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any (web browser)",
+      "isAccessibleForFree": true,
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+      "audience": {"@type": "EducationalAudience", "educationalRole": "student", "audienceType": "Children and families"},
+      "description": "A nature journal for children and families: log finds with photos, see what you spot in each season, and reflect on the signs of Allah.",
+      "featureList": ["Log plants, animals, bugs, fungi, sky and rocks", "Photos from camera or gallery", "Seasons board and month chart", "Watch the same tree change through the year", "Set your own place and hemisphere", "Hijri date next to the normal date", "Subhanallah and Alhamdulillah reactions on each find"],
+      "publisher": {"@id": "https://ummahapps.ai/#org"}
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Is Nature Spotters free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It is free, has no ads and needs no account."}},
+        {"@type": "Question", "name": "Where are my finds and photos saved?", "acceptedAnswer": {"@type": "Answer", "text": "Only on your own device, in your browser. Nothing is uploaded."}},
+        {"@type": "Question", "name": "Does it work outside the UK?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Set your place and choose the northern or southern half of the world so the seasons and ideas match where you live."}}
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;800&display=swap">
+<style>
+/* Layout concept: a season-tinted hero over a pocket field-guide. Journal grid of sticker cards,
+   a seasons board that compares what we saw when, and a badge shelf. Colour comes from the finds. */
+:root{
+  --display:"Fredoka","Trebuchet MS",system-ui,sans-serif;
+  --body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --arabic:"Amiri Quran","Amiri","Noto Naskh Arabic","Traditional Arabic",serif;
+  --bg:#EFF7FC; --surface:#FFFFFF; --ink:#12263A; --muted:#566B7E; --line:#D3E2EE; --soft:#E3F0F9;
+  --cta:#FFC93C; --cta-ink:#2A1E00; --focus:#1B6EF3; --danger:#C62F3E;
+  --plant:#1FA463; --animal:#E86F12; --bird:#2B86EC; --bug:#DB3A87; --fungi:#8656E8; --sky:#C98500; --rock:#0E9693;
+  --spring:#2FB45F; --summer:#F2A900; --autumn:#E5601A; --winter:#3F86DB;
+  --h-spring:#CDEFD6; --h-summer:#FFE6A0; --h-autumn:#FFD3B5; --h-winter:#CFE3FA;
+  --shadow:0 2px 0 rgba(18,38,58,.08),0 8px 20px -12px rgba(18,38,58,.25);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0D1B2A; --surface:#16293B; --ink:#EAF2F9; --muted:#9FB3C5; --line:#294259; --soft:#1D3348;
+  --focus:#7DB2FF; --danger:#FF8A94;
+  --h-spring:#1B4A32; --h-summer:#5A4300; --h-autumn:#5A2A10; --h-winter:#1B3A5E;
+  --shadow:0 2px 0 rgba(0,0,0,.3),0 8px 20px -12px rgba(0,0,0,.6);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1B2A; --surface:#16293B; --ink:#EAF2F9; --muted:#9FB3C5; --line:#294259; --soft:#1D3348;
+  --focus:#7DB2FF; --danger:#FF8A94;
+  --h-spring:#1B4A32; --h-summer:#5A4300; --h-autumn:#5A2A10; --h-winter:#1B3A5E;
+  --shadow:0 2px 0 rgba(0,0,0,.3),0 8px 20px -12px rgba(0,0,0,.6);
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;
+  padding-block:env(safe-area-inset-top,0px) 110px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+img{max-width:100%}
+[hidden]{display:none!important}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:8px}
+h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;text-wrap:balance;line-height:1.15}
+.wrap{max-width:940px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+[lang=ar]{font-family:var(--arabic);font-weight:400}
+
+/* hero */
+.hero{margin:12px 0 0;border-radius:28px;padding:20px 22px 20px;background:var(--hero);position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px}
+.hero[data-s=spring]{--hero:var(--h-spring);--sc:var(--spring)}
+.hero[data-s=summer]{--hero:var(--h-summer);--sc:var(--summer)}
+.hero[data-s=autumn]{--hero:var(--h-autumn);--sc:var(--autumn)}
+.hero[data-s=winter]{--hero:var(--h-winter);--sc:var(--winter)}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;background:var(--sc);opacity:.28;pointer-events:none}
+.hero::before{width:220px;height:220px;right:-60px;top:-80px}
+.hero::after{width:120px;height:120px;right:70px;bottom:-60px;opacity:.2}
+.hero>*{position:relative}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.bism{font-family:var(--display);font-weight:600;font-size:1.05rem;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.bism [lang=ar]{font-size:1.3rem;line-height:1.4}
+.loc{border:0;background:var(--surface);border-radius:999px;padding:6px 13px 6px 9px;font-weight:800;font-size:.88rem;display:inline-flex;gap:6px;align-items:center;box-shadow:var(--shadow);max-width:100%}
+.loc svg{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.loc span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.eyebrow{font-weight:800;font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(2rem,7vw,3rem)}
+.today{font-family:var(--display);font-weight:600;font-size:clamp(1.25rem,5vw,1.7rem);line-height:1.25;display:flex;flex-wrap:wrap;align-items:baseline;column-gap:14px;row-gap:2px}
+.today .hijri{font-size:.72em;font-weight:500;color:var(--muted)}
+.hero p{margin:0;max-width:34ch;font-size:1.05rem}
+.stats{display:flex;gap:10px;flex-wrap:wrap}
+.stat{background:var(--surface);border-radius:16px;padding:8px 14px;display:flex;flex-direction:column;min-width:84px;box-shadow:var(--shadow)}
+.stat b{font-family:var(--display);font-size:1.7rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat span{font-size:.8rem;color:var(--muted);font-weight:600}
+@media(prefers-reduced-motion:no-preference){
+  .bism{animation:rise .9s ease-out both}
+  .bism+*{animation:rise .9s .15s ease-out both}
+}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ayah */
+.ayah{margin:0;background:var(--surface);border-radius:22px;padding:18px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;border-inline-start:6px solid var(--plant)}
+.ayah .ar{margin:0;font-size:clamp(1.4rem,4.8vw,1.85rem);line-height:2.1;text-align:right}
+.ayah blockquote{margin:0;font-size:1.02rem}
+.ayah figcaption{font-size:.85rem;color:var(--muted);font-weight:700}
+
+/* tabs */
+.tabs{display:flex;gap:6px;background:var(--soft);padding:5px;border-radius:999px;align-self:flex-start;max-width:100%}
+.tab{border:0;background:transparent;padding:8px 18px;border-radius:999px;font-weight:800;color:var(--muted);white-space:nowrap}
+.tab[aria-selected=true]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+
+/* shared bits */
+.banner{background:var(--soft);border-radius:14px;padding:10px 14px;font-size:.92rem;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:7px;border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-weight:700;font-size:.92rem}
+button.chip:hover{border-color:var(--focus)}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.dot{width:12px;height:12px;border-radius:50%;flex:none;background:var(--c,var(--muted))}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.section-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.section-h h2{font-size:1.35rem}
+.muted{color:var(--muted)}
+.small{font-size:.88rem}
+.tile{width:44px;height:44px;border-radius:14px;background:var(--c);color:#fff;display:grid;place-items:center;flex:none}
+.tile svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cat-plant{--c:var(--plant)}.cat-animal{--c:var(--animal)}.cat-bird{--c:var(--bird)}.cat-bug{--c:var(--bug)}
+.cat-fungi{--c:var(--fungi)}.cat-sky{--c:var(--sky)}.cat-rock{--c:var(--rock)}
+.s-spring{--c:var(--spring)}.s-summer{--c:var(--summer)}.s-autumn{--c:var(--autumn)}.s-winter{--c:var(--winter)}
+
+/* quest */
+.quest{background:var(--surface);border-radius:22px;padding:16px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+.quest h2{font-size:1.2rem}
+.quest .chip{border-color:var(--c);padding-left:6px}
+.quest .chip .tile{width:28px;height:28px;border-radius:10px}
+.quest .chip .tile svg{width:17px;height:17px}
+
+/* journal grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px}
+.card{background:var(--surface);border:0;border-radius:22px;padding:0;text-align:left;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.card:hover{transform:translateY(-2px)}
+.thumb{aspect-ratio:4/3;background:var(--c);display:grid;place-items:center;color:#fff;position:relative;overflow:hidden}
+.thumb svg{width:44%;height:44%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.95}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card .body{padding:10px 14px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.card h3{font-size:1.1rem;overflow-wrap:anywhere}
+.meta{font-size:.84rem;color:var(--muted);overflow-wrap:anywhere}
+.tags{display:flex;gap:5px;flex-wrap:wrap}
+.tag{display:inline-block;border-radius:999px;padding:1px 9px;font-size:.74rem;font-weight:800;background:var(--c);color:#fff;align-self:flex-start}
+.tag.s-summer{color:#2A1E00}
+.tag.ex{background:var(--soft);color:var(--muted)}
+.tag.said{background:var(--soft);color:var(--ink)}
+.empty{background:var(--surface);border-radius:24px;padding:28px 22px;text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center;box-shadow:var(--shadow)}
+.empty .row{justify-content:center}
+.empty p{margin:0;max-width:38ch}
+
+/* seasons board */
+.card-panel{background:var(--surface);border-radius:22px;padding:16px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;min-width:0}
+.months{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;align-items:end;height:150px}
+.mcol{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;height:100%;min-width:0}
+.mbar{width:100%;max-width:34px;border-radius:8px 8px 4px 4px;background:var(--c);min-height:4px}
+.mcol.zero .mbar{background:var(--line)}
+.mcol b{font-size:.78rem;font-variant-numeric:tabular-nums}
+.mcol span{font-size:.78rem;color:var(--muted);font-weight:800}
+.mcol.now span{color:var(--ink);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:3px;text-decoration-color:var(--focus)}
+.seasons{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.spanel{background:var(--surface);border-radius:22px;padding:14px 16px 16px;box-shadow:var(--shadow);border-top:8px solid var(--c);display:flex;flex-direction:column;gap:10px;min-width:0}
+.spanel h3{display:flex;justify-content:space-between;gap:8px;align-items:baseline;font-size:1.25rem}
+.spanel .now{font-family:var(--body);font-size:.72rem;font-weight:800;background:var(--c);color:#fff;border-radius:999px;padding:2px 9px;letter-spacing:.05em;text-transform:uppercase}
+.spanel.s-summer .now{color:#2A1E00}
+.kinds{display:flex;flex-wrap:wrap;gap:6px}
+.kind{display:inline-flex;gap:6px;align-items:center;background:var(--soft);border-radius:999px;padding:3px 10px 3px 8px;font-size:.88rem;font-weight:700}
+.kind i{font-style:normal;color:var(--muted);font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto;border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:420px}
+th,td{padding:8px 10px;text-align:center;border-bottom:1px solid var(--line)}
+th{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+th:first-child,td:first-child{text-align:left}
+td:first-child{font-weight:700}
+.pip{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;font-weight:800;font-size:.85rem;font-variant-numeric:tabular-nums}
+.pip.s-summer{color:#2A1E00}
+.pip.off{background:transparent;border:2px dashed var(--line);color:transparent}
+.twocol{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+
+/* FAB */
+.fab{position:fixed;z-index:20;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  background:var(--cta);color:var(--cta-ink);border:0;border-radius:999px;padding:14px 24px 14px 18px;font-family:var(--display);font-weight:600;font-size:1.2rem;
+  display:flex;gap:10px;align-items:center;box-shadow:0 3px 0 rgba(0,0,0,.18),0 12px 24px -10px rgba(0,0,0,.45)}
+.fab svg{width:24px;height:24px;stroke:currentColor;stroke-width:3;stroke-linecap:round;fill:none}
+.fab:active{transform:translateY(2px)}
+
+/* sheet */
+.veil{position:fixed;inset:0;z-index:30;background:rgba(8,18,30,.6);display:flex;align-items:flex-end;justify-content:center;padding-top:env(safe-area-inset-top,0px)}
+.veil[hidden]{display:none!important}
+.sheet{background:var(--surface);width:min(620px,100%);max-height:94%;overflow-y:auto;border-radius:28px 28px 0 0;padding:20px max(18px,env(safe-area-inset-left,0px)) calc(22px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:14px}
+@media(min-width:700px){.veil{align-items:center}.sheet{border-radius:28px}}
+.sheet h2{font-size:1.5rem}
+.field{display:flex;flex-direction:column;gap:5px}
+.field label,.legend{font-weight:800;font-size:.9rem}
+.input{border:2px solid var(--line);background:var(--bg);border-radius:14px;padding:10px 12px;width:100%;min-width:0}
+textarea.input{min-height:84px;resize:vertical}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:8px}
+.catbtn{border:2px solid var(--line);background:var(--bg);border-radius:16px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;gap:5px;font-weight:800;font-size:.82rem;text-align:center}
+.catbtn[aria-pressed=true]{border-color:var(--c);background:var(--surface);box-shadow:0 0 0 3px var(--c)}
+.say{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.saybtn{border:2px solid var(--line);background:var(--bg);border-radius:16px;padding:8px 8px 10px;display:flex;flex-direction:column;align-items:center;gap:0;font-weight:800;text-align:center}
+.saybtn [lang=ar]{font-size:1.4rem;line-height:1.7}
+.saybtn small{color:var(--muted);font-weight:600;font-size:.76rem}
+.saybtn[aria-pressed=true]{border-color:var(--plant);background:var(--surface);box-shadow:0 0 0 3px var(--plant)}
+.saybtn[aria-pressed=true] b::after{content:" \2713";color:var(--plant)}
+.hemis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.hemi{border:2px solid var(--line);background:var(--bg);border-radius:16px;padding:10px 12px;text-align:left;display:flex;flex-direction:column;gap:2px}
+.hemi b{font-family:var(--display);font-weight:600;font-size:1.05rem}
+.hemi small{color:var(--muted);font-weight:600}
+.hemi[aria-pressed=true]{border-color:var(--focus);background:var(--surface);box-shadow:0 0 0 3px var(--focus)}
+.btn{display:inline-block;text-align:center;cursor:pointer;border:0;border-radius:999px;padding:11px 22px;font-weight:800;background:var(--cta);color:var(--cta-ink)}
+.btn.ghost{background:var(--soft);color:var(--ink)}
+.btn.danger{background:var(--danger);color:#fff}
+:root[data-theme="dark"] .btn.danger{color:#2b0509}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.danger{color:#2b0509}}
+.btn[disabled]{opacity:.6;cursor:progress}
+.err{color:var(--danger);font-weight:700;margin:0}
+.photo-prev{width:100%;max-height:220px;object-fit:cover;border-radius:16px}
+.big-photo{width:100%;aspect-ratio:4/3;border-radius:18px;object-fit:cover;background:var(--c);display:grid;place-items:center;color:#fff;overflow:hidden;position:relative;flex:none}
+.big-photo svg{width:34%;height:34%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.big-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0}
+.kv dt{font-weight:800;color:var(--muted)}.kv dd{margin:0;overflow-wrap:anywhere}
+.watch-item{display:flex;flex-direction:column;gap:8px}
+.collage{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:dense;gap:4px;border-radius:14px;overflow:hidden}
+.collage.few{grid-template-columns:repeat(2,1fr)}
+.collage.one{grid-template-columns:1fr}
+.ctile{position:relative;aspect-ratio:1;padding:0;border:0;background:var(--soft);overflow:hidden;min-width:0}
+.collage.one .ctile{aspect-ratio:4/3}
+.collage:not(.few):not(.one) .ctile:nth-child(7n+1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.ctile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ctile:hover img{transform:scale(1.05)}
+.collage-empty{border:2px dashed var(--line);border-radius:14px;padding:18px 10px;text-align:center;color:var(--muted);font-size:.9rem}
+.carwrap{position:relative;max-width:560px;border-radius:20px;overflow:hidden}
+.stage{position:absolute;inset:0;background:#000;cursor:pointer;overflow:hidden}
+.frame{position:absolute;inset:0;opacity:0;transition:opacity var(--fade,1.4s) ease-in-out}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.frame.on{opacity:1;z-index:2}
+.frame.on img{animation:kb var(--kb,4.5s) ease-out forwards}
+.frame.out{z-index:1}
+.frame.out img{transform:scale(1.03)}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.03)}}
+.stcap{position:absolute;z-index:3;left:0;right:0;bottom:6px;padding:26px 12px 8px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;font-family:var(--display);font-size:1.25rem;font-weight:600}
+.stbar{position:absolute;z-index:4;left:0;right:0;bottom:0;height:6px;background:rgba(255,255,255,.3)}
+.stbar i{display:block;height:100%;width:0;background:var(--cta);transition:width .5s}
+@media(prefers-reduced-motion:reduce){.frame.on img{animation:none}.frame.out img{transform:none}}
+.car{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:20px;max-width:100%;scrollbar-width:none;background:var(--soft)}
+.car::-webkit-scrollbar{display:none}
+.slide{flex:none;width:100%;scroll-snap-align:center;aspect-ratio:4/3;position:relative;border:0;padding:0;background:var(--soft);display:block;overflow:hidden}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slide span{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-family:var(--display);font-size:1.25rem;font-weight:600}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);opacity:0}
+.foot{text-align:center;font-size:.85rem;color:var(--muted);padding:8px 0}
+.foot a{color:inherit}
+@media(prefers-reduced-motion:no-preference){.card{transition:transform .15s}.fab{transition:transform .1s}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<button class="fab" id="fab" data-act="new" type="button"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Log a find</button>
+<div class="veil" id="veil" hidden><div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-h"></div></div>
+<noscript><p style="padding:20px">Nature Spotters needs JavaScript turned on.</p></noscript>
+
+<script>
+(function(){
+"use strict";
+var CATS=[
+ {id:"plant",name:"Plants & trees",icon:'<path d="M12 21V11"/><path d="M12 12c0-5 3-8 8-8 0 5-3 8-8 8z"/><path d="M12 15c0-4-2.5-6-7-6 0 4 2.5 6 7 6z"/>'},
+ {id:"animal",name:"Animals",icon:'<ellipse cx="12" cy="16" rx="4.5" ry="3.8"/><circle cx="5.8" cy="10.5" r="1.7"/><circle cx="10" cy="6.3" r="1.7"/><circle cx="14" cy="6.3" r="1.7"/><circle cx="18.2" cy="10.5" r="1.7"/>'},
+ {id:"bug",name:"Bugs",icon:'<ellipse cx="12" cy="14" rx="5" ry="6"/><path d="M12 8v12M9.5 6.5l-2-3M14.5 6.5l2-3M7 12l-3.5-1M17 12l3.5-1M7.5 17l-3.5 2M16.5 17l3.5 2"/>'},
+ {id:"fungi",name:"Fungi",icon:'<path d="M4 12a8 7 0 0 1 16 0z"/><path d="M10 12v6a2 2 0 0 0 4 0v-6"/>'},
+ {id:"sky",name:"Sky & weather",icon:'<path d="M7 18a4 4 0 0 1 0-8 5 5 0 0 1 9.500-1A4.500 4.500 0 0 1 17 18z"/>'},
+ {id:"rock",name:"Rocks & water",icon:'<path d="M2.500 19l5-9 4 2.500 3-5.500 6.500 12z"/>'}
+];
+var CAT={};CATS.forEach(function(c){CAT[c.id]=c});
+var SEASONS=[
+ {id:"spring",name:"Spring",north:"March to May",south:"September to November",tag:"New leaves, blossom and baby animals. Go and look!",ldn:"Blossom on the streets and goslings on the pond. Go and look!"},
+ {id:"summer",name:"Summer",north:"June to August",south:"December to February",tag:"Long days and busy bugs. What is buzzing today?",ldn:"Long evenings, busy parks and foxes at dusk. What is buzzing today?"},
+ {id:"autumn",name:"Autumn",north:"September to November",south:"March to May",tag:"Leaves are changing colour and seeds are falling. What can you find?",ldn:"Plane tree leaves are falling and conkers are dropping. What can you find?"},
+ {id:"winter",name:"Winter",north:"December to February",south:"June to August",tag:"Bare branches and chilly air. Wrap up and look closely.",ldn:"Frosty parks and bare branches. Wrap up and look closely."}
+];
+var SEA={};SEASONS.forEach(function(s){SEA[s.id]=s});
+var SUGGEST={
+ spring:[["Blossom","plant"],["Daffodil","plant"],["New leaves","plant"],["Bee","bug"],["Butterfly","bug"],["Ladybird","bug"],["Bird's nest","animal"],["Tadpoles","animal"],["Snail","animal"],["Rainbow","sky"]],
+ summer:[["Butterfly","bug"],["Dragonfly","bug"],["Ant trail","bug"],["Grasshopper","bug"],["Wildflower","plant"],["Squirrel","animal"],["Lizard","animal"],["Sunset","sky"],["Shell or pebble","rock"],["Bird singing","animal"]],
+ autumn:[["Red leaf","plant"],["Acorn","plant"],["Pine cone","plant"],["Mushroom","fungi"],["Spider web","bug"],["Squirrel","animal"],["Berries","plant"],["Birds flying in a V","animal"],["Puddle","rock"],["Seeds","plant"]],
+ winter:[["Frost","sky"],["Bare tree","plant"],["Evergreen tree","plant"],["Bird tracks","animal"],["Icy puddle","rock"],["Red berries","plant"],["Moss","plant"],["The moon","sky"],["Small bird","animal"],["Clouds","sky"]]
+};
+var SUGGEST_LDN={
+ spring:[["Cherry blossom","plant"],["Daffodil","plant"],["Bluebell","plant"],["Frogspawn","animal"],["Parakeet","animal"],["Goslings","animal"],["Bumblebee","bug"],["Heron","animal"],["Horse chestnut buds","plant"],["Magpie","animal"]],
+ summer:[["Butterfly","bug"],["Ladybird","bug"],["Fox cub","animal"],["Swift","animal"],["Dragonfly","bug"],["Stag beetle","bug"],["Lime tree flowers","plant"],["Rainbow","sky"],["Grey squirrel","animal"],["Pond skater","bug"]],
+ autumn:[["Conker","plant"],["Plane tree leaf","plant"],["Fly agaric","fungi"],["Squirrel","animal"],["Spider web","bug"],["Red leaf","plant"],["Parakeet flock","animal"],["Fox","animal"],["Acorn","plant"],["Puddle","rock"]],
+ winter:[["Frost","sky"],["Robin","animal"],["Holly berries","plant"],["Bare plane tree","plant"],["Icy puddle","rock"],["Fox","animal"],["Snowdrop","plant"],["Starlings","animal"],["Cormorant","animal"],["Mistletoe","plant"]]
+};
+var SAY=[
+ {id:"subhanallah",en:"Subhanallah",ar:"سُبْحَانَ ٱللَّٰهِ",mean:"Glory be to Allah"},
+ {id:"alhamdulillah",en:"Alhamdulillah",ar:"ٱلْحَمْدُ لِلَّٰهِ",mean:"All praise is for Allah"}
+];
+var SAYS={};SAY.forEach(function(x){SAYS[x.id]=x});
+var MONTHS=["J","F","M","A","M","J","J","A","S","O","N","D"];
+var MONTHN=["January","February","March","April","May","June","July","August","September","October","November","December"];
+var HMONTHN=["Muharram","Safar","Rabi al-Awwal","Rabi al-Thani","Jumada al-Ula","Jumada al-Akhirah","Rajab","Sha'ban","Ramadan","Shawwal","Dhul Qa'dah","Dhul Hijjah"];
+var PIN='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
+
+var S={tab:"journal",cat:"all",year:"all",items:[],loaded:false,dbOn:false,loadErr:"",sheet:null,clearAsk:false};
+var idb=null,URLS={};
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function pad(n){return n<10?"0"+n:""+n}
+function todayStr(){var d=new Date();return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())}
+function parts(s){var p=String(s||"").split("-");return {y:+p[0],m:+p[1],d:+p[2]}}
+function norm(s){return String(s||"").trim().toLowerCase().replace(/\s+/g," ")}
+function newId(p){return p+Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+
+/* ---------- location settings ---------- */
+function guessSettings(){
+  var tz="";try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){}
+  var city=tz.indexOf("/")>0?tz.split("/").pop().replace(/_/g," "):"";
+  if(!/^[A-Za-z .'-]+$/.test(city))city="";
+  var south=/^(Australia|Antarctica)\/|Auckland|Chatham|Johannesburg|Maputo|Harare|Lusaka|Windhoek|Gaborone|Maseru|Mbabane|Sao_Paulo|Argentina|Buenos_Aires|Santiago|Montevideo|Asuncion/.test(tz);
+  return {place:city,hemi:south?"south":"north",places:city==="London"?["Hyde Park","Holland Park","The Logs","Marcus Garvey Park"]:[],hijriAdj:0,saved:false};
+}
+var SET=(function(){
+  var g=guessSettings();
+  try{var v=JSON.parse(localStorage.getItem("ns-settings")||"null");if(v&&typeof v==="object")return Object.assign(g,v)}catch(e){}
+  return g;
+})();
+function saveSettings(){try{localStorage.setItem("ns-settings",JSON.stringify(SET))}catch(e){}}
+function isLondon(){return /\blondon\b/.test(norm(SET.place))}
+
+function seasonOfMonth(m){if(SET.hemi==="south")m=(m+5)%12+1;return m>=3&&m<=5?"spring":m>=6&&m<=8?"summer":m>=9&&m<=11?"autumn":"winter"}
+function seasonOf(s){return seasonOfMonth(parts(s).m)}
+function seasonMonths(s){return SET.hemi==="south"?s.south:s.north}
+function ord(n){var v=n%100;if(v>=11&&v<=13)return n+"th";return n+(["th","st","nd","rd"][n%10]||"th")}
+function fmt(s){var p=parts(s);if(!p.y)return "";var d=new Date(p.y,p.m-1,p.d);return d.toLocaleDateString("en-GB",{weekday:"long"})+" "+ord(p.d)+" "+MONTHN[p.m-1]+" "+p.y}
+var HFMT=(function(){
+  var cals=["islamic-umalqura","islamic-civil","islamic"];
+  for(var i=0;i<cals.length;i++){try{var f=new Intl.DateTimeFormat("en-u-ca-"+cals[i],{day:"numeric",month:"numeric",year:"numeric"});if(f.resolvedOptions().calendar===cals[i])return f}catch(e){}}
+  return null;
+})();
+function hijri(s,adj){
+  var p=parts(s);if(!p.y||!HFMT)return "";
+  var d=new Date(p.y,p.m-1,p.d+(adj==null?(+SET.hijriAdj||0):adj),12),o={};
+  try{HFMT.formatToParts(d).forEach(function(x){o[x.type]=x.value})}catch(e){return ""}
+  var m=parseInt(o.month,10),y=parseInt(o.year||o.relatedYear,10);
+  if(!m||!y)return "";
+  return parseInt(o.day,10)+" "+HMONTHN[m-1]+" "+y+" AH";
+}
+function icon(c){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+(CAT[c]?CAT[c].icon:"")+'</svg>'}
+function tile(c){return '<span class="tile cat-'+c+'">'+icon(c)+'</span>'}
+function purl(id){return id&&URLS[id]||""}
+
+function vis(){return S.year==="all"?S.items:S.items.filter(function(i){return parts(i.date).y===S.year})}
+function sorted(a){return (a||S.items).slice().sort(function(a,b){return (b.date||"").localeCompare(a.date||"")||(b.createdAt||0)-(a.createdAt||0)})}
+
+/* ---------- storage: everything stays on this device ---------- */
+function openIDB(){
+  return new Promise(function(res,rej){
+    if(!window.indexedDB)return rej(new Error("no idb"));
+    var r=indexedDB.open("nature-spotters",1);
+    r.onupgradeneeded=function(){var d=r.result;d.createObjectStore("items",{keyPath:"id"});d.createObjectStore("photos")};
+    r.onsuccess=function(){res(r.result)};r.onerror=function(){rej(r.error)};r.onblocked=function(){rej(new Error("blocked"))};
+  });
+}
+function run(store,fn){
+  return new Promise(function(res,rej){
+    var t=idb.transaction(store,"readwrite"),req=fn(t.objectStore(store));
+    t.oncomplete=function(){res(req&&req.result)};t.onerror=t.onabort=function(){rej(t.error)};
+  });
+}
+function allItems(){return new Promise(function(res,rej){var r=idb.transaction("items").objectStore("items").getAll();r.onsuccess=function(){res(r.result||[])};r.onerror=function(){rej(r.error)}})}
+function loadPhotos(){
+  return new Promise(function(res){
+    var t=idb.transaction("photos"),c=t.objectStore("photos").openCursor();
+    c.onsuccess=function(){var cur=c.result;if(cur){try{URLS[cur.key]=URL.createObjectURL(cur.value)}catch(e){}cur.continue()}};
+    t.oncomplete=res;t.onerror=res;
+  });
+}
+function putItem(it){
+  S.items=S.items.filter(function(i){return i.id!==it.id}).concat([it]);
+  return idb?run("items",function(s){return s.put(it)}):Promise.resolve();
+}
+function delItem(id){S.items=S.items.filter(function(i){return i.id!==id});return idb?run("items",function(s){return s.delete(id)}):Promise.resolve()}
+function putPhoto(id,blob){URLS[id]=URL.createObjectURL(blob);return idb?run("photos",function(s){return s.put(blob,id)}):Promise.resolve()}
+function delPhoto(id){if(!id)return Promise.resolve();if(URLS[id]){try{URL.revokeObjectURL(URLS[id])}catch(e){}delete URLS[id]}return idb?run("photos",function(s){return s.delete(id)}).catch(function(){}):Promise.resolve()}
+
+/* ---------- derived data ---------- */
+function kindsMap(src){
+  var m={};
+  (src||S.items).forEach(function(it){
+    var k=norm(it.name);if(!k)return;
+    var e=m[k]||(m[k]={name:it.name,cat:it.cat,total:0,s:{spring:0,summer:0,autumn:0,winter:0}});
+    e.total++;e.s[seasonOf(it.date)]++;
+  });
+  return Object.keys(m).map(function(k){return m[k]}).sort(function(a,b){return b.total-a.total||a.name.localeCompare(b.name)});
+}
+
+/* ---------- render ---------- */
+function render(){
+  var now=todayStr(),cs=seasonOf(now),sea=SEA[cs],hj=hijri(now);
+  var kinds=kindsMap(),places={},said=0;
+  S.items.forEach(function(i){if(norm(i.place))places[norm(i.place)]=1;if(i.said&&i.said.length)said++});
+  var h='<header class="hero" data-s="'+cs+'">'
+   +'<div class="hero-top"><div class="bism">Bismillah, let\'s explore <span lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ</span></div>'
+   +'<button class="loc" data-act="loc" type="button" aria-label="Change your place. Now: '+esc(SET.place||"not set")+'">'+PIN+'<span>'+(SET.place?esc(SET.place):"Set your place")+'</span></button></div>'
+   +'<div class="eyebrow">'+(SET.place?esc(SET.place)+' &middot; ':"")+sea.name+'</div>'
+   +'<h1>Nature Spotters</h1><div class="today"><span>'+esc(fmt(now))+'</span>'+(hj?'<span class="hijri">'+esc(hj)+'</span>':"")+'</div>'
+   +'<p>'+esc(isLondon()?sea.ldn:sea.tag)+'</p>'
+   +'<div class="stats"><div class="stat"><b>'+S.items.length+'</b><span>finds</span></div>'
+   +'<div class="stat"><b>'+kinds.length+'</b><span>kinds</span></div>'
+   +'<div class="stat"><b>'+Object.keys(places).length+'</b><span>places</span></div>'
+   +(said?'<div class="stat"><b>'+said+'</b><span>made us praise Allah</span></div>':"")+'</div></header>';
+  h+='<figure class="ayah"><p class="ar" lang="ar" dir="rtl">﴿ وَمِنۡ ءَایَـٰتِهِۦ خَلۡقُ ٱلسَّمَـٰوَ ٰ⁠تِ وَٱلۡأَرۡضِ وَمَا بَثَّ فِیهِمَا مِن دَاۤبَّةࣲۚ وَهُوَ عَلَىٰ جَمۡعِهِمۡ إِذَا یَشَاۤءُ قَدِیرࣱ ﴾</p>'
+   +'<blockquote>"And of His signs is the creation of the heavens and the earth and what He has dispersed throughout them of creatures. And He, for gathering them when He wills, is competent."</blockquote>'
+   +'<figcaption>Surah Ash-Shūrā 42:29</figcaption></figure>';
+  if(!SET.saved)h+='<div class="banner">'+(SET.place?'Are you in '+esc(SET.place)+'? ':"")+'Set your place so the seasons and ideas match where you live. <button class="btn ghost" data-act="loc" type="button">Set my place</button></div>';
+  h+='<nav class="tabs" role="tablist" aria-label="Sections">'+[["journal","Journal"],["seasons","Seasons"]].map(function(t){
+    return '<button class="tab" role="tab" data-act="tab" data-v="'+t[0]+'" aria-selected="'+(S.tab===t[0])+'">'+t[1]+'</button>'}).join("")+'</nav>';
+  var yrs={};S.items.forEach(function(i){var y=parts(i.date).y;if(y)yrs[y]=1});
+  var yl=Object.keys(yrs).map(Number).sort(function(a,b){return b-a});
+  if(S.year!=="all"&&yl.indexOf(S.year)<0)S.year="all";
+  if(yl.length>1)h+='<div class="row" role="group" aria-label="Choose a year"><button class="chip" data-act="year" data-v="all" aria-pressed="'+(S.year==="all")+'">All years</button>'+yl.map(function(y){return '<button class="chip" data-act="year" data-v="'+y+'" aria-pressed="'+(S.year===y)+'">'+y+'</button>'}).join("")+'</div>';
+  if(S.loadErr)h+='<div class="banner">'+esc(S.loadErr)+'</div>';
+  else if(S.loaded&&!S.dbOn)h+='<div class="banner">Saving is not available in this browser, so finds will disappear when you close the page.</div>';
+  h+=S.tab==="seasons"?viewSeasons(cs):viewJournal(cs);
+  h+='<footer class="foot">Your finds and photos are saved only on this device. Made by <a href="https://ummahapps.ai/">Ummah Apps</a>.</footer>';
+  stopPlay();document.getElementById("app").innerHTML=h;
+  document.querySelectorAll(".car").forEach(function(c){c.scrollLeft=(+c.dataset.first||0)*c.clientWidth});
+}
+
+function viewJournal(cs){
+  var h="";
+  var seen={};var cy=parts(todayStr()).y;
+  S.items.forEach(function(i){if(seasonOf(i.date)===cs&&parts(i.date).y===cy)seen[norm(i.name)]=1});
+  var ideas=(isLondon()?SUGGEST_LDN:SUGGEST)[cs].filter(function(x){return !seen[norm(x[0])]}).slice(0,5);
+  if(ideas.length){
+    h+='<section class="quest" aria-labelledby="qh"><h2 id="qh">Look out for this '+SEA[cs].name.toLowerCase()+(SET.place?' in '+esc(SET.place):"")+'</h2><div class="row">'
+      +ideas.map(function(x){return '<button class="chip cat-'+x[1]+'" data-act="idea" data-n="'+esc(x[0])+'" data-c="'+x[1]+'">'+tile(x[1])+esc(x[0])+'</button>'}).join("")
+      +'</div><div class="small muted">Tap one when you spot it.</div></section>';
+  }
+  if(!S.loaded){return h+'<div class="empty"><p class="muted">Opening your journal...</p></div>'}
+  if(!S.items.length){
+    return h+'<div class="empty"><div class="row">'+CATS.map(function(c){return tile(c.id)}).join("")+'</div>'
+      +'<h2>Your journal is waiting</h2><p>Go outside, look under a log, up a tree or into a puddle. Then tap Log a find and write down what you saw.</p></div>';
+  }
+  h+='<div class="row" role="group" aria-label="Filter by group">'
+    +'<button class="chip" data-act="cat" data-c="all" aria-pressed="'+(S.cat==="all")+'">All</button>'
+    +CATS.map(function(c){return '<button class="chip cat-'+c.id+'" data-act="cat" data-c="'+c.id+'" aria-pressed="'+(S.cat===c.id)+'"><span class="dot"></span>'+esc(c.name)+'</button>'}).join("")
+    +'</div>';
+  var list=sorted(vis()).filter(function(i){return S.cat==="all"||i.cat===S.cat});
+  if(!list.length)h+='<div class="empty"><p>Nothing here yet. Try a different filter.</p></div>';
+  else h+='<div class="grid">'+list.map(card).join("")+'</div>';
+  if(S.items.some(function(i){return i.example})){
+    h+='<div class="banner">Some of these are examples to show how the journal works.'
+     +(S.clearAsk?' <button class="btn danger" data-act="clear-yes">Yes, remove examples</button> <button class="btn ghost" data-act="clear-no">Keep them</button>'
+       :' <button class="btn ghost" data-act="clear-ask">Remove examples</button>')+'</div>';
+  }
+  return h;
+}
+function thumb(it,cls){
+  var u=purl(it.photo);
+  return '<div class="'+cls+' cat-'+it.cat+'">'+icon(it.cat)+(u?'<img src="'+esc(u)+'" alt="" loading="lazy" onerror="this.remove()">':"")+'</div>';
+}
+function card(it){
+  var s=seasonOf(it.date);
+  return '<button class="card" data-act="open" data-id="'+esc(it.id)+'">'+thumb(it,"thumb")
+   +'<div class="body"><span class="tag s-'+s+'">'+SEA[s].name+'</span><h3>'+esc(it.name)+'</h3>'
+   +'<span class="meta">'+esc(fmt(it.date))+(it.place?" &middot; "+esc(it.place):"")+'</span>'
+   +((it.said&&it.said.length)||it.example?'<span class="tags">'+(it.said||[]).filter(function(x){return SAYS[x]}).map(function(x){return '<span class="tag said">'+SAYS[x].en+'</span>'}).join("")
+     +(it.example?'<span class="tag ex">Example</span>':"")+'</span>':"")
+   +'</div></button>';
+}
+
+function viewSeasons(cs){
+  var kinds=kindsMap(vis());
+  if(!S.items.length){
+    return '<div class="empty"><h2>Seasons fill in as you explore</h2><p>Once you have logged a few finds, this page shows what you see in each season and which things come back every year.</p></div>';
+  }
+  var counts=new Array(12).fill(0);
+  vis().forEach(function(i){counts[parts(i.date).m-1]++});
+  var max=Math.max.apply(null,counts)||1,nowM=parts(todayStr()).m;
+  var h='<section class="card-panel" aria-labelledby="mh"><div class="section-h"><h2 id="mh">Finds by month</h2><span class="muted small">'+(S.year==="all"?"All years together":S.year)+'</span></div><div class="months">'
+   +counts.map(function(n,i){var m=i+1;return '<div class="mcol s-'+seasonOfMonth(m)+(n?"":" zero")+(m===nowM?" now":"")+'" title="'+MONTHN[i]+': '+n+'">'
+     +'<b>'+(n||"")+'</b><div class="mbar" style="height:'+(n?Math.max(6,Math.round(n/max*90)):0)+'px"></div><span>'+MONTHS[i]+'</span></div>'}).join("")+'</div></section>';
+  var multi=kinds.filter(function(k){return Object.keys(k.s).filter(function(x){return k.s[x]>0}).length>1});
+  var one=kinds.filter(function(k){return Object.keys(k.s).filter(function(x){return k.s[x]>0}).length===1});
+  var chips=function(a){return a.length?'<div class="kinds">'+a.slice(0,10).map(function(k){return '<span class="kind cat-'+k.cat+'"><span class="dot"></span>'+esc(k.name)+'</span>'}).join("")+(a.length>10?'<span class="muted small">+'+(a.length-10)+' more</span>':"")+'</div>':'<span class="muted small">None yet.</span>'};
+  h+='<div class="twocol"><section class="card-panel"><h2 style="font-size:1.15rem">Seen in more than one season</h2>'+chips(multi)+'</section>'
+    +'<section class="card-panel"><h2 style="font-size:1.15rem">Only seen in one season so far</h2>'+chips(one)+'</section></div>';
+  h+=watchView();
+  h+='<div class="seasons">'+SEASONS.map(function(s){
+    var ks=kinds.filter(function(k){return k.s[s.id]>0}).sort(function(a,b){return b.s[s.id]-a.s[s.id]||a.name.localeCompare(b.name)});
+    var total=vis().filter(function(i){return seasonOf(i.date)===s.id}).length;
+    return '<section class="spanel s-'+s.id+'"><h3>'+s.name+(s.id===cs?' <span class="now">Now</span>':"")+'</h3>'
+      +'<div class="meta">'+seasonMonths(s)+' &middot; '+total+' find'+(total===1?"":"s")+'</div>'+collage(s.id)
+      +(ks.length?'<div class="kinds">'+ks.map(function(k){return '<span class="kind cat-'+k.cat+'"><span class="dot"></span>'+esc(k.name)+(k.s[s.id]>1?' <i>&times;'+k.s[s.id]+'</i>':"")+'</span>'}).join("")+'</div>'
+        :'<div class="muted small">Nothing logged yet.</div>')+'</section>'}).join("")+'</div>';
+  h+='<section class="card-panel" aria-labelledby="th"><div class="section-h"><h2 id="th">What we see, and when</h2><span class="muted small">Number shows how many times</span></div><div class="scroll"><table><thead><tr><th>Kind</th>'
+    +SEASONS.map(function(s){return '<th>'+s.name+'</th>'}).join("")+'</tr></thead><tbody>'
+    +kinds.map(function(k){return '<tr><td><span class="row" style="flex-wrap:nowrap"><span class="dot cat-'+k.cat+'"></span>'+esc(k.name)+'</span></td>'
+      +SEASONS.map(function(s){var n=k.s[s.id];return '<td><span class="pip s-'+s.id+(n?"":" off")+'">'+(n||"")+'</span></td>'}).join("")+'</tr>'}).join("")
+    +'</tbody></table></div></section>';
+  return h;
+}
+
+function collage(sid){
+  var pics=sorted(vis()).filter(function(i){return purl(i.photo)&&seasonOf(i.date)===sid});
+  if(!pics.length)return '<div class="collage-empty">No photos yet</div>';
+  var cls=pics.length===1?" one":pics.length<=3?" few":"";
+  return '<div class="collage'+cls+'" aria-label="All '+SEA[sid].name.toLowerCase()+' photos">'+pics.map(function(it){
+    return '<button class="ctile" data-act="open" data-id="'+esc(it.id)+'" title="'+esc(it.name)+'"><img src="'+esc(purl(it.photo))+'" alt="'+esc(it.name)+', '+esc(fmt(it.date))+'" loading="lazy"></button>';
+  }).join("")+'</div>';
+}
+
+function watchView(){
+  var m={};
+  S.items.forEach(function(i){
+    if(!purl(i.photo))return;var k=norm(i.name);if(!k)return;
+    (m[k]||(m[k]={name:i.name,pics:[]})).pics.push(i);
+  });
+  var list=Object.keys(m).map(function(k){var e=m[k];e.pics.sort(function(a,b){return (a.date||"").localeCompare(b.date||"")||(a.createdAt||0)-(b.createdAt||0)});return e})
+    .filter(function(e){return e.pics.length>=2}).sort(function(a,b){return b.pics.length-a.pics.length});
+  var h='<section class="card-panel" aria-labelledby="wh"><div class="section-h"><h2 id="wh">Watch it change</h2><span class="muted small">Same name, photos in date order</span></div>';
+  if(!list.length)return h+'<p class="muted" style="margin:0">Photograph the same tree or spot again and again, and give each find exactly the same name, like "Plane tree by the gate". Its photos will line up here so you can swipe through and watch it change.</p></section>';
+  return h+list.map(function(e,n){
+    var slides=e.pics.map(function(it){
+      var s=seasonOf(it.date);
+      return '<button class="slide s-'+s+'" data-act="open" data-id="'+esc(it.id)+'" data-has="1"><img src="'+esc(purl(it.photo))+'" alt="'+esc(e.name)+', '+esc(fmt(it.date))+'" loading="lazy"><span>'+SEA[s].name+' &middot; '+esc(fmt(it.date))+'</span></button>';
+    }).join("");
+    var firstOf={};e.pics.forEach(function(it,i){var s=seasonOf(it.date);if(firstOf[s]==null)firstOf[s]=i});
+    var chips=SEASONS.map(function(s){
+      return firstOf[s.id]!=null?'<button class="chip s-'+s.id+'" data-act="go" data-i="'+firstOf[s.id]+'"><span class="dot"></span>'+s.name+'</button>'
+        :'<span class="chip s-'+s.id+' muted" style="border-style:dashed"><span class="dot" style="opacity:.35"></span>'+s.name+': none yet</span>';
+    }).join("");
+    return '<div class="watch-item" data-k="'+n+'"><div class="section-h"><h3 style="font-size:1.15rem">'+esc(e.name)+' <span class="muted small">'+e.pics.length+' photos</span></h3><div class="row" style="gap:6px;flex-wrap:nowrap"><span class="row" style="gap:4px;flex-wrap:nowrap" role="group" aria-label="Playback speed"><button class="chip" data-act="speed" data-v="slow" aria-pressed="'+(speed==="slow")+'">Slow</button><button class="chip" data-act="speed" data-v="fast" aria-pressed="'+(speed==="fast")+'">Faster</button></span><button class="btn ghost" data-act="play" data-k="'+n+'">Play</button></div></div>'
+      +'<div class="carwrap"><div class="car" data-first="0" tabindex="0" role="group" aria-label="Photos of '+esc(e.name)+' in date order, swipe to see each">'+slides+'</div></div><div class="row">'+chips+'</div></div>';
+  }).join("")+'</section>';
+}
+
+/* ---------- sheet ---------- */
+function openSheet(state){S.sheet=state;drawSheet();var v=document.getElementById("veil");v.hidden=false;
+  var f=document.getElementById("f-name")||document.getElementById("f-loc")||document.querySelector("#sheet button");if(f)try{f.focus({preventScroll:true})}catch(e){}}
+function closeSheet(){S.sheet=null;document.getElementById("veil").hidden=true;document.getElementById("sheet").innerHTML="";}
+function sayButtons(list){
+  return '<div class="say" role="group" aria-labelledby="sayl">'+SAY.map(function(x){var on=(list||[]).indexOf(x.id)>-1;
+    return '<button type="button" class="saybtn" data-act="say" data-v="'+x.id+'" aria-pressed="'+on+'"><span lang="ar" dir="rtl">'+x.ar+'</span><b>'+x.en+'</b><small>'+x.mean+'</small></button>'}).join("")+'</div>';
+}
+function drawSheet(){
+  var f=S.sheet,el=document.getElementById("sheet");if(!f)return;
+  if(f.mode==="view"){
+    var it=f.item,s=seasonOf(it.date),hj=hijri(it.date);
+    el.innerHTML=thumb(it,"big-photo")
+     +'<div class="row"><span class="tag s-'+s+'">'+SEA[s].name+'</span><span class="tag cat-'+it.cat+'">'+esc(CAT[it.cat]?CAT[it.cat].name:"")+'</span>'+(it.example?'<span class="tag ex">Example</span>':"")+'</div>'
+     +'<h2 id="sheet-h">'+esc(it.name)+'</h2>'
+     +'<dl class="kv"><dt>Date</dt><dd>'+esc(fmt(it.date))+(hj?'<br><span class="muted">'+esc(hj)+'</span>':"")+'</dd>'+(it.place?'<dt>Place</dt><dd>'+esc(it.place)+'</dd>':"")+(it.note?'<dt>Notes</dt><dd>'+esc(it.note)+'</dd>':"")+'</dl>'
+     +'<div class="field"><span class="legend" id="sayl">What did it make you say?</span>'+sayButtons(it.said)+'</div>'
+     +(f.confirm?'<p class="err">Delete this find for good?</p><div class="row"><button class="btn danger" data-act="del-yes">Yes, delete</button><button class="btn ghost" data-act="del-no">Keep it</button></div>'
+       :'<div class="row"><button class="btn" data-act="edit">Edit</button><button class="btn ghost" data-act="del-ask">Delete</button><button class="btn ghost" data-act="close" style="margin-left:auto">Close</button></div>');
+    return;
+  }
+  if(f.mode==="settings"){
+    var adjs=[[-1,"One day earlier"],[0,"As shown"],[1,"One day later"]];
+    el.innerHTML='<h2 id="sheet-h">Where do you explore?</h2>'
+     +'<div class="field"><label for="f-loc">Your town or city</label><input class="input" id="f-loc" maxlength="60" autocomplete="address-level2" placeholder="Birmingham, Toronto, Cape Town..." value="'+esc(f.place)+'"></div>'
+     +'<div class="field"><span class="legend" id="hl">Which half of the world?</span><span class="small muted">This sets when each season starts.</span><div class="hemis" role="group" aria-labelledby="hl">'
+     +'<button type="button" class="hemi" data-act="hemi" data-v="north" aria-pressed="'+(f.hemi==="north")+'"><b>Northern half</b><small>UK, Europe, North America, Middle East, most of Asia and Africa. Spring is March to May.</small></button>'
+     +'<button type="button" class="hemi" data-act="hemi" data-v="south" aria-pressed="'+(f.hemi==="south")+'"><b>Southern half</b><small>Australia, New Zealand, South Africa, South America. Spring is September to November.</small></button></div></div>'
+     +'<div class="field"><label for="f-places">Places you often go</label><span class="small muted">One per line. These become quick buttons when you log a find.</span><textarea class="input" id="f-places" maxlength="400" placeholder="Our garden&#10;The park by school">'+esc(f.places)+'</textarea></div>'
+     +(HFMT?'<div class="field"><span class="legend" id="adjl">Hijri date</span><span class="small muted">Today shows as '+esc(hijri(todayStr(),f.adj))+'. If your local masjid is a day ahead or behind, change it here.</span><div class="row" role="group" aria-labelledby="adjl">'
+       +adjs.map(function(a){return '<button type="button" class="chip" data-act="adj" data-v="'+a[0]+'" aria-pressed="'+(f.adj===a[0])+'">'+a[1]+'</button>'}).join("")+'</div></div>':"")
+     +'<div class="row"><button class="btn" data-act="set-save">Save</button><button class="btn ghost" data-act="close">Cancel</button></div>';
+    return;
+  }
+  el.innerHTML='<h2 id="sheet-h">'+(f.mode==="edit"?"Edit this find":"What did you find?")+'</h2>'
+   +'<div class="field"><span class="legend" id="catl">Pick a group</span><div class="cats" role="group" aria-labelledby="catl">'
+   +CATS.map(function(c){return '<button type="button" class="catbtn cat-'+c.id+'" data-act="pick" data-c="'+c.id+'" aria-pressed="'+(f.cat===c.id)+'">'+tile(c.id)+esc(c.name)+'</button>'}).join("")+'</div></div>'
+   +'<div class="field"><label for="f-name">Name</label><input class="input" id="f-name" maxlength="80" list="names" autocomplete="off" placeholder="Mushroom, robin, red leaf..." value="'+esc(f.name)+'"><datalist id="names">'+kindsMap().map(function(k){return '<option value="'+esc(k.name)+'">'}).join("")+'</datalist></div>'
+   +'<div class="field"><span class="legend" id="pl">Where are you?</span>'+(placeList().length?'<div class="row" role="group" aria-labelledby="pl">'+placeList().map(function(p){return '<button type="button" class="chip" data-act="place" data-p="'+esc(p)+'" aria-pressed="'+(f.place===p)+'">'+esc(p)+'</button>'}).join("")+'</div>':"")+'<input class="input" id="f-place" maxlength="80" autocomplete="off" aria-labelledby="pl" placeholder="'+(placeList().length?"Or type your own place":"Garden, park, beach...")+'" value="'+esc(f.place)+'"></div>'
+   +'<div class="field"><span class="legend" id="sayl">What did it make you say?</span>'+sayButtons(f.said)+'</div>'
+   +(f.more?'<div class="field"><label for="f-date">Date</label><input class="input" id="f-date" type="date" max="'+todayStr()+'" value="'+esc(f.date)+'"></div>'
+   +'<div class="field"><label for="f-note">What did you notice?</label><textarea class="input" id="f-note" maxlength="600" placeholder="Colour, size, sound, smell, what it was doing...">'+esc(f.note)+'</textarea></div>':'<button type="button" class="btn ghost" data-act="more" style="align-self:flex-start">Add notes or a different date</button><span class="small muted">Date saved automatically: '+esc(fmt(f.date))+'</span>')
+   +'<div class="field"><label for="f-photo">Photo</label>'
+     +(f.preview?'<img class="photo-prev" src="'+esc(f.preview)+'" alt="Chosen photo">':purl(f.photo)?'<img class="photo-prev" src="'+esc(purl(f.photo))+'" alt="Saved photo" onerror="this.remove()">':"")
+     +'<div class="row"><label class="btn ghost" for="f-cam">Take a photo</label><label class="btn ghost" for="f-photo">Choose a photo</label></div><input class="sr" id="f-cam" type="file" accept="image/*" capture="environment"><input class="sr" id="f-photo" type="file" accept="image/*">'
+     +((f.preview||purl(f.photo))?'<button type="button" class="btn ghost" data-act="photo-off" style="align-self:flex-start">Remove photo</button>':"")+'</div>'
+   +(f.err?'<p class="err" role="alert">'+esc(f.err)+'</p>':"")
+   +'<div class="row"><button class="btn" data-act="save"'+(f.busy?" disabled":"")+'>'+(f.busy?"Saving...":"Save find")+'</button><button class="btn ghost" data-act="close">Cancel</button></div>';
+}
+function readForm(){
+  var f=S.sheet,g=function(id,k){var e=document.getElementById(id);if(e&&(e.value||k!=="date"))f[k]=e.value};
+  if(f.mode==="settings"){g("f-loc","place");g("f-places","places");return}
+  g("f-name","name");g("f-date","date");g("f-place","place");g("f-note","note");
+}
+function blank(over){return Object.assign({mode:"add",id:null,cat:"",name:"",date:todayStr(),place:lastPlace(),more:false,note:"",said:[],photo:null,origPhoto:null,file:null,preview:null,err:"",busy:false,example:false},over||{})}
+function placeList(){
+  var seen={},out=[],cnt={};
+  (SET.places||[]).forEach(function(p){var k=norm(p);if(k&&!seen[k]){seen[k]=1;out.push(p.trim())}});
+  S.items.forEach(function(i){var k=norm(i.place);if(!k||seen[k])return;cnt[k]=cnt[k]||{p:i.place.trim(),n:0};cnt[k].n++});
+  Object.keys(cnt).map(function(k){return cnt[k]}).sort(function(a,b){return b.n-a.n}).slice(0,6).forEach(function(c){out.push(c.p)});
+  return out;
+}
+function lastPlace(){try{return localStorage.getItem("ns-place")||""}catch(e){return ""}}
+
+function shrink(file,max){
+  return new Promise(function(res,rej){
+    var url=URL.createObjectURL(file),im=new Image();
+    im.onload=function(){
+      var r=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement("canvas");
+      c.width=Math.round(im.width*r);c.height=Math.round(im.height*r);
+      c.getContext("2d").drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(url);
+      c.toBlob(function(b){b?res(b):rej(new Error("resize"))},"image/jpeg",.82);
+    };
+    im.onerror=function(){URL.revokeObjectURL(url);rej(new Error("load"))};
+    im.src=url;
+  });
+}
+
+async function save(){
+  var f=S.sheet;readForm();f.err="";
+  var name=f.name.trim();
+  if(!f.cat){f.err="Pick a group first, like Plants or Animals.";return drawSheet()}
+  if(!name){f.err="Add a name. If you do not know it yet, write what it looks like.";return drawSheet()}
+  f.busy=true;drawSheet();
+  var photo=f.photo||null,warn="";
+  try{
+    if(f.file){
+      try{var blob=await shrink(f.file,1000),pid=newId("p");await putPhoto(pid,blob);photo=pid}
+      catch(e){if(e&&e.name==="QuotaExceededError")throw e;warn="The photo could not be saved, so this find has no picture."}
+    }
+    var data={id:f.id||newId("f"),name:name,cat:f.cat,date:f.date||todayStr(),place:f.place.trim(),note:f.note.trim(),said:f.said.slice(),photo:photo,example:!!f.example,createdAt:f.createdAt||Date.now()};
+    try{localStorage.setItem("ns-place",data.place)}catch(e){}
+    await putItem(data);
+    if(f.origPhoto&&f.origPhoto!==photo)delPhoto(f.origPhoto);
+    if(f.preview)try{URL.revokeObjectURL(f.preview)}catch(e){}
+    closeSheet();render();
+    if(warn)toast(warn);
+  }catch(e){
+    f.busy=false;f.err=e&&e.name==="QuotaExceededError"?"This device is out of space. Delete some old finds or photos to make room.":"That did not save. Please try again.";drawSheet();
+  }
+}
+function toast(msg){var a=document.getElementById("app"),d=document.createElement("div");d.className="banner";d.setAttribute("role","status");d.textContent=msg;a.prepend(d);setTimeout(function(){d.remove()},5000)}
+
+async function quickSay(v){
+  var it=S.sheet.item,list=(it.said||[]).slice(),i=list.indexOf(v);
+  if(i>-1)list.splice(i,1);else list.push(v);
+  var upd=Object.assign({},it,{said:list});
+  S.sheet.item=upd;drawSheet();
+  var b=document.querySelector('#sheet [data-act=say][data-v="'+v+'"]');if(b)b.focus();
+  try{await putItem(upd)}catch(e){toast("That did not save. Please try again.")}
+  render();
+}
+async function removeItem(id){
+  var it=S.items.filter(function(i){return i.id===id})[0];
+  try{await delItem(id);if(it&&it.photo)await delPhoto(it.photo)}catch(e){}
+  closeSheet();render();
+}
+async function clearExamples(){
+  var ex=S.items.filter(function(i){return i.example});
+  S.clearAsk=false;
+  try{for(var i=0;i<ex.length;i++){await delItem(ex[i].id);await delPhoto(ex[i].photo)}}catch(e){}
+  render();
+}
+
+/* ---------- slideshow ---------- */
+var SPEEDS={slow:{ms:3300,fade:"1.4s",kb:"4.5s",out:1500},fast:{ms:1700,fade:".7s",kb:"2.4s",out:800}};
+var speed=(function(){try{var v=localStorage.getItem("ns-speed");return SPEEDS[v]?v:"slow"}catch(e){return "slow"}})();
+var timers={},stages={},appliers={};
+function stopPlay(){Object.keys(timers).forEach(function(k){clearInterval(timers[k])});timers={};stages={};appliers={}}
+function togglePlay(btn){
+  var k=btn.getAttribute("data-k");
+  if(timers[k]){clearInterval(timers[k]);delete timers[k];delete appliers[k];if(stages[k]){stages[k].remove();delete stages[k]}btn.textContent="Play";return}
+  var item=btn.closest(".watch-item"),wrap=item.querySelector(".carwrap");
+  var pics=[].map.call(item.querySelectorAll(".slide[data-has='1']"),function(sl){return {src:sl.querySelector("img").getAttribute("src"),cap:sl.querySelector("span").textContent}});
+  if(pics.length<2)return;
+  var st=document.createElement("div");st.className="stage";st.setAttribute("role","img");st.setAttribute("aria-label","Time-lapse of the photos. Tap to pause.");
+  pics.forEach(function(x){var f=document.createElement("div");f.className="frame";var im=document.createElement("img");im.src=x.src;im.alt="";f.appendChild(im);st.appendChild(f)});
+  var cap=document.createElement("div");cap.className="stcap";st.appendChild(cap);
+  var bar=document.createElement("div");bar.className="stbar";var fill=document.createElement("i");bar.appendChild(fill);st.appendChild(bar);
+  wrap.appendChild(st);stages[k]=st;
+  var frames=st.querySelectorAll(".frame"),i=-1;
+  function show(){
+    if(i>=0){var old=frames[i];old.classList.remove("on");old.classList.add("out");setTimeout(function(){old.classList.remove("out")},SPEEDS[speed].out)}
+    i=(i+1)%frames.length;frames[i].classList.remove("out");frames[i].classList.add("on");
+    cap.textContent=pics[i].cap;fill.style.width=((i+1)/frames.length*100)+"%";
+  }
+  show();btn.textContent="Pause";
+  st.addEventListener("click",function(){btn.click()});
+  appliers[k]=function(){var sp=SPEEDS[speed];st.style.setProperty("--fade",sp.fade);st.style.setProperty("--kb",sp.kb);clearInterval(timers[k]);timers[k]=setInterval(show,sp.ms)};
+  appliers[k]();
+}
+
+/* ---------- events ---------- */
+document.addEventListener("click",function(e){
+  var t=e.target.closest("[data-act]");if(!t)return;
+  var a=t.getAttribute("data-act");
+  if(a==="tab"){S.tab=t.getAttribute("data-v");try{history.replaceState(null,"","#"+S.tab)}catch(x){}render();return}
+  if(a==="year"){var yv=t.getAttribute("data-v");S.year=yv==="all"?"all":+yv;render();return}
+  if(a==="cat"){S.cat=t.getAttribute("data-c");render();return}
+  if(a==="new"){openSheet(blank());return}
+  if(a==="idea"){openSheet(blank({name:t.getAttribute("data-n"),cat:t.getAttribute("data-c")}));return}
+  if(a==="loc"){openSheet({mode:"settings",place:SET.place||"",hemi:SET.hemi,places:(SET.places||[]).join("\n"),adj:+SET.hijriAdj||0});return}
+  if(a==="hemi"){readForm();S.sheet.hemi=t.getAttribute("data-v");drawSheet();return}
+  if(a==="adj"){readForm();S.sheet.adj=+t.getAttribute("data-v");drawSheet();return}
+  if(a==="set-save"){readForm();var sf=S.sheet;
+    SET.place=sf.place.trim();SET.hemi=sf.hemi;SET.hijriAdj=sf.adj;SET.saved=true;
+    SET.places=sf.places.split(/[\n,]/).map(function(p){return p.trim()}).filter(Boolean).slice(0,12);
+    saveSettings();closeSheet();render();return}
+  if(a==="open"){var it=S.items.filter(function(i){return i.id===t.getAttribute("data-id")})[0];if(it)openSheet({mode:"view",item:it,confirm:false});return}
+  if(a==="close"){closeSheet();return}
+  if(a==="edit"){var i2=S.sheet.item;openSheet(blank({mode:"edit",more:true,id:i2.id,cat:i2.cat,name:i2.name,date:i2.date,place:i2.place||"",note:i2.note||"",said:(i2.said||[]).slice(),photo:i2.photo||null,origPhoto:i2.photo||null,example:i2.example,createdAt:i2.createdAt}));return}
+  if(a==="del-ask"){S.sheet.confirm=true;drawSheet();return}
+  if(a==="del-no"){S.sheet.confirm=false;drawSheet();return}
+  if(a==="del-yes"){removeItem(S.sheet.item.id);return}
+  if(a==="say"){var sv=t.getAttribute("data-v");
+    if(S.sheet.mode==="view"){quickSay(sv);return}
+    readForm();var sl=S.sheet.said,si=sl.indexOf(sv);if(si>-1)sl.splice(si,1);else sl.push(sv);drawSheet();
+    var sb=document.querySelector('#sheet [data-act=say][data-v="'+sv+'"]');if(sb)sb.focus();return}
+  if(a==="pick"){readForm();S.sheet.cat=t.getAttribute("data-c");drawSheet();return}
+  if(a==="go"){var car=t.closest(".watch-item").querySelector(".car");car.scrollTo({left:(+t.getAttribute("data-i"))*car.clientWidth,behavior:"smooth"});return}
+  if(a==="play"){togglePlay(t);return}
+  if(a==="speed"){speed=t.getAttribute("data-v");try{localStorage.setItem("ns-speed",speed)}catch(x){}
+    document.querySelectorAll("[data-act=speed]").forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-v")===speed)});
+    Object.keys(appliers).forEach(function(k){appliers[k]()});return}
+  if(a==="place"){readForm();var pv=t.getAttribute("data-p");S.sheet.place=(S.sheet.place===pv?"":pv);drawSheet();return}
+  if(a==="more"){readForm();S.sheet.more=true;drawSheet();return}
+  if(a==="photo-off"){readForm();S.sheet.photo=null;S.sheet.file=null;S.sheet.preview=null;drawSheet();return}
+  if(a==="save"){save();return}
+  if(a==="clear-ask"){S.clearAsk=true;render();return}
+  if(a==="clear-no"){S.clearAsk=false;render();return}
+  if(a==="clear-yes"){clearExamples();return}
+});
+document.addEventListener("change",function(e){
+  var t=e.target;
+  if((t.id==="f-photo"||t.id==="f-cam")&&t.files&&t.files[0]){
+    readForm();var fl=t.files[0];S.sheet.file=fl;S.sheet.preview=URL.createObjectURL(fl);drawSheet();
+  }
+});
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"&&S.sheet)closeSheet();
+});
+document.getElementById("veil").addEventListener("click",function(e){if(e.target.id==="veil")closeSheet()});
+window.addEventListener("hashchange",function(){var h=location.hash.slice(1);if(["journal","seasons"].indexOf(h)>-1){S.tab=h;render()}});
+(function(){var h=location.hash.slice(1);if(["journal","seasons"].indexOf(h)>-1)S.tab=h})();
+
+/* ---------- start ---------- */
+render();
+(async function(){
+  try{
+    idb=await openIDB();
+    var items=await allItems();await loadPhotos();
+    S.items=items.map(function(o){if(!CAT[o.cat])o.cat="animal";if(!Array.isArray(o.said))o.said=[];return o});
+    S.dbOn=true;
+    try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}
+  }catch(e){idb=null;S.dbOn=false}
+  S.loaded=true;render();
+})();
+})();
+</script>
+</body>
+</html>
