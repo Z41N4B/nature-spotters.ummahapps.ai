@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Nature Spotters – A Nature Journal for Muslim Families | Ummah Apps</title>
-<meta name="description" content="A free nature journal for children and families. Log the plants, animals, bugs and skies you spot, add photos, watch the seasons change, and remember Allah's signs with Subhanallah and Alhamdulillah. Works anywhere in the world, no sign-up.">
+<meta name="description" content="A free nature journal for children and families. Log the plants, animals, bugs and skies you spot, add photos, watch the seasons change, and remember Allah's signs with Subhanallah, Alhamdulillah, Allahu Akbar and more. Works anywhere in the world, no sign-up.">
 <meta name="keywords" content="nature journal, nature spotting, kids nature diary, Muslim kids, Islamic home education, homeschool nature study, seasons, signs of Allah, Subhanallah, Alhamdulillah, Hijri date, Ummah Apps">
 <meta name="author" content="Ummah Apps">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -67,7 +67,7 @@
       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
       "audience": {"@type": "EducationalAudience", "educationalRole": "student", "audienceType": "Children and families"},
       "description": "A nature journal for children and families: log finds with photos, see what you spot in each season, and reflect on the signs of Allah.",
-      "featureList": ["Log plants, animals, bugs, fungi, sky and rocks", "Photos from camera or gallery", "Seasons board and month chart", "Watch the same tree change through the year", "Set your own place and hemisphere", "Hijri date next to the normal date", "Subhanallah and Alhamdulillah reactions on each find"],
+      "featureList": ["Log plants, animals, bugs, fungi, sky and rocks", "Photos from camera or gallery", "Seasons board and month chart", "Watch the same tree change through the year", "Set your own place and hemisphere", "Hijri date next to the normal date", "Subhanallah, Alhamdulillah, Allahu Akbar, La ilaha illa Allah, La hawla wa la quwwata illa billah and Inna lillahi reactions on each find"],
       "publisher": {"@id": "https://ummahapps.ai/#org"}
     },
     {
@@ -259,8 +259,9 @@ textarea.input{min-height:84px;resize:vertical}
 .catbtn{border:2px solid var(--line);background:var(--bg);border-radius:16px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;gap:5px;font-weight:800;font-size:.82rem;text-align:center}
 .catbtn[aria-pressed=true]{border-color:var(--c);background:var(--surface);box-shadow:0 0 0 3px var(--c)}
 .say{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.saybtn{border:2px solid var(--line);background:var(--bg);border-radius:16px;padding:8px 8px 10px;display:flex;flex-direction:column;align-items:center;gap:0;font-weight:800;text-align:center}
-.saybtn [lang=ar]{font-size:1.4rem;line-height:1.7}
+.saybtn{border:2px solid var(--line);background:var(--bg);border-radius:16px;padding:8px 8px 10px;justify-content:center;display:flex;flex-direction:column;align-items:center;gap:0;font-weight:800;text-align:center}
+.saybtn [lang=ar]{font-size:1.4rem;line-height:2;margin-bottom:2px}
+.saybtn.wide{grid-column:1/-1}
 .saybtn small{color:var(--muted);font-weight:600;font-size:.76rem}
 .saybtn[aria-pressed=true]{border-color:var(--plant);background:var(--surface);box-shadow:0 0 0 3px var(--plant)}
 .saybtn[aria-pressed=true] b::after{content:" \2713";color:var(--plant)}
@@ -355,7 +356,11 @@ var SUGGEST_LDN={
 };
 var SAY=[
  {id:"subhanallah",en:"Subhanallah",ar:"سُبْحَانَ ٱللَّٰهِ",mean:"Glory be to Allah"},
- {id:"alhamdulillah",en:"Alhamdulillah",ar:"ٱلْحَمْدُ لِلَّٰهِ",mean:"All praise is for Allah"}
+ {id:"alhamdulillah",en:"Alhamdulillah",ar:"ٱلْحَمْدُ لِلَّٰهِ",mean:"All praise is for Allah"},
+ {id:"allahuakbar",en:"Allahu Akbar",ar:"ٱللَّٰهُ أَكْبَرُ",mean:"Allah is the Greatest"},
+ {id:"lailahaillallah",en:"La ilaha illa Allah",ar:"لَا إِلَٰهَ إِلَّا ٱللَّٰهُ",mean:"There is no god but Allah"},
+ {id:"lahawla",wide:1,en:"La hawla wa la quwwata illa billah",ar:"لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِٱللَّٰهِ",mean:"There is no power or strength except with Allah"},
+ {id:"innalillahi",wide:1,en:"Inna lillahi wa inna ilayhi raji'un",ar:"إِنَّا لِلَّٰهِ وَإِنَّا إِلَيْهِ رَٰجِعُونَ",mean:"We belong to Allah and to Him we return"}
 ];
 var SAYS={};SAY.forEach(function(x){SAYS[x.id]=x});
 var MONTHS=["J","F","M","A","M","J","J","A","S","O","N","D"];
@@ -470,7 +475,7 @@ function render(){
    +'<div class="stats"><div class="stat"><b>'+S.items.length+'</b><span>finds</span></div>'
    +'<div class="stat"><b>'+kinds.length+'</b><span>kinds</span></div>'
    +'<div class="stat"><b>'+Object.keys(places).length+'</b><span>places</span></div>'
-   +(said?'<div class="stat"><b>'+said+'</b><span>made us praise Allah</span></div>':"")+'</div></header>';
+   +(said?'<div class="stat"><b>'+said+'</b><span>made us remember Allah</span></div>':"")+'</div></header>';
   h+='<figure class="ayah"><p class="ar" lang="ar" dir="rtl">﴿ وَمِنۡ ءَایَـٰتِهِۦ خَلۡقُ ٱلسَّمَـٰوَ ٰ⁠تِ وَٱلۡأَرۡضِ وَمَا بَثَّ فِیهِمَا مِن دَاۤبَّةࣲۚ وَهُوَ عَلَىٰ جَمۡعِهِمۡ إِذَا یَشَاۤءُ قَدِیرࣱ ﴾</p>'
    +'<blockquote>"And of His signs is the creation of the heavens and the earth and what He has dispersed throughout them of creatures. And He, for gathering them when He wills, is competent."</blockquote>'
    +'<figcaption>Surah Ash-Shūrā 42:29</figcaption></figure>';
@@ -604,7 +609,7 @@ function openSheet(state){S.sheet=state;drawSheet();var v=document.getElementByI
 function closeSheet(){S.sheet=null;document.getElementById("veil").hidden=true;document.getElementById("sheet").innerHTML="";}
 function sayButtons(list){
   return '<div class="say" role="group" aria-labelledby="sayl">'+SAY.map(function(x){var on=(list||[]).indexOf(x.id)>-1;
-    return '<button type="button" class="saybtn" data-act="say" data-v="'+x.id+'" aria-pressed="'+on+'"><span lang="ar" dir="rtl">'+x.ar+'</span><b>'+x.en+'</b><small>'+x.mean+'</small></button>'}).join("")+'</div>';
+    return '<button type="button" class="saybtn'+(x.wide?" wide":"")+'" data-act="say" data-v="'+x.id+'" aria-pressed="'+on+'"><span lang="ar" dir="rtl">'+x.ar+'</span><b>'+x.en+'</b><small>'+x.mean+'</small></button>'}).join("")+'</div>';
 }
 function drawSheet(){
   var f=S.sheet,el=document.getElementById("sheet");if(!f)return;

@@ -4,7 +4,7 @@ A free nature journal for children and Muslim families. Live at https://nature-s
 
 ## Features
 - Log finds (plants, animals, bugs, fungi, sky, rocks and water) with a photo, place, notes and date
-- "What did it make you say?" with one-tap Subhanallah and Alhamdulillah on each find
+- "What did it make you say?" with one-tap Subhanallah, Alhamdulillah, Allahu Akbar, La ilaha illa Allah, La hawla wa la quwwata illa billah and Inna lillahi wa inna ilayhi raji'un on each find
 - Seasonal ideas, a month chart, season boards and a "watch it change" time-lapse
 - Set your town, favourite places and hemisphere so the seasons match where you live
 - Hijri date next to the normal date, with a one-day adjustment
