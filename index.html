@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Nature Spotters – A Nature Journal for Muslim Families | Ummah Apps</title>
-<meta name="description" content="A free nature journal for children and families. Log the plants, animals, bugs and skies you spot, add photos, watch the seasons change, and remember Allah's signs with Subhanallah, Alhamdulillah, Allahu Akbar and more. Works anywhere in the world, no sign-up.">
+<meta name="description" content="A free nature journal for children and families. Log the plants, animals, bugs and skies you spot, identify tree leaves with sketches of 39 common English trees and bushes, add photos, watch the seasons change, and remember Allah's signs with Subhanallah, Alhamdulillah, Allahu Akbar and more. Works anywhere in the world, no sign-up.">
 <meta name="keywords" content="nature journal, nature spotting, kids nature diary, Muslim kids, Islamic home education, homeschool nature study, seasons, signs of Allah, Subhanallah, Alhamdulillah, Hijri date, Ummah Apps">
 <meta name="author" content="Ummah Apps">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -67,7 +67,7 @@
       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
       "audience": {"@type": "EducationalAudience", "educationalRole": "student", "audienceType": "Children and families"},
       "description": "A nature journal for children and families: log finds with photos, see what you spot in each season, and reflect on the signs of Allah.",
-      "featureList": ["Log plants, animals, bugs, fungi, sky and rocks", "Photos from camera or gallery", "Seasons board and month chart", "Watch the same tree change through the year", "Set your own place and hemisphere", "Hijri date next to the normal date", "Subhanallah, Alhamdulillah, Allahu Akbar, La ilaha illa Allah, La hawla wa la quwwata illa billah and Inna lillahi reactions on each find"],
+      "featureList": ["Log plants, animals, bugs, fungi, sky and rocks", "Leaf sketches and a step-by-step leaf finder for 39 common trees and bushes in England", "Photos from camera or gallery", "Seasons board and month chart", "Watch the same tree change through the year", "Set your own place and hemisphere", "Hijri date next to the normal date", "Subhanallah, Alhamdulillah, Allahu Akbar, La ilaha illa Allah, La hawla wa la quwwata illa billah and Inna lillahi reactions on each find"],
       "publisher": {"@id": "https://ummahapps.ai/#org"}
     },
     {
@@ -98,6 +98,7 @@
   --spring:#2FB45F; --summer:#F2A900; --autumn:#E5601A; --winter:#3F86DB;
   --h-spring:#CDEFD6; --h-summer:#FFE6A0; --h-autumn:#FFD3B5; --h-winter:#CFE3FA;
   --shadow:0 2px 0 rgba(18,38,58,.08),0 8px 20px -12px rgba(18,38,58,.25);
+  --paper:#FBF7EA; --paper-line:rgba(43,134,236,.08); --lf-fill:#D6EDC8; --lf-ink:#2E5E2A; --lf-stem:#7A5230; --lf-needle:#2E6B3A;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -105,12 +106,14 @@
   --focus:#7DB2FF; --danger:#FF8A94;
   --h-spring:#1B4A32; --h-summer:#5A4300; --h-autumn:#5A2A10; --h-winter:#1B3A5E;
   --shadow:0 2px 0 rgba(0,0,0,.3),0 8px 20px -12px rgba(0,0,0,.6);
+  --paper:#1C2B22; --paper-line:rgba(255,255,255,.05); --lf-fill:#35563A; --lf-ink:#CDEBC0; --lf-stem:#D2A679; --lf-needle:#9FD8A6;
   color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0D1B2A; --surface:#16293B; --ink:#EAF2F9; --muted:#9FB3C5; --line:#294259; --soft:#1D3348;
   --focus:#7DB2FF; --danger:#FF8A94;
   --h-spring:#1B4A32; --h-summer:#5A4300; --h-autumn:#5A2A10; --h-winter:#1B3A5E;
   --shadow:0 2px 0 rgba(0,0,0,.3),0 8px 20px -12px rgba(0,0,0,.6);
+  --paper:#1C2B22; --paper-line:rgba(255,255,255,.05); --lf-fill:#35563A; --lf-ink:#CDEBC0; --lf-stem:#D2A679; --lf-needle:#9FD8A6;
   color-scheme:dark}
 
 *{box-sizing:border-box}
@@ -312,6 +315,30 @@ textarea.input{min-height:84px;resize:vertical}
 .slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .slide span{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-family:var(--display);font-size:1.25rem;font-weight:600}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);opacity:0}
+/* leaves */
+.leafpic{aspect-ratio:1;background-color:var(--paper);background-image:repeating-linear-gradient(transparent 0 17px,var(--paper-line) 17px 18px);position:relative;display:block;width:100%;overflow:hidden;--pad:12px}
+.leafpic .lf{position:absolute;left:var(--pad);top:var(--pad);width:calc(100% - 2*var(--pad));height:calc(100% - 2*var(--pad))}
+.leafpic.big{aspect-ratio:4/3;border-radius:18px;flex:none;--pad:18px}
+.lf{width:100%;height:100%;overflow:visible}
+.lf path{vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round;fill:none;stroke:var(--lf-ink)}
+.lf-f path{fill:var(--lf-fill);stroke-width:1.6px}
+.lf-sk path{stroke-width:1px;opacity:.3}
+.lf-v path{stroke-width:.75px;opacity:.7}
+.lf path.lf-stem{stroke:var(--lf-stem)}
+.lf path.lf-needle{stroke:var(--lf-needle)}
+.thumb.paper,.big-photo.paper{background-color:var(--paper)}
+.thumb.paper .lf{width:72%;height:80%;opacity:1}
+.big-photo.paper .lf{width:62%;height:82%}
+.grid.leaves{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+.k-tree{--c:var(--plant)}.k-bush{--c:var(--rock)}.k-conifer{--c:var(--bird)}
+.finder{background:var(--surface);border-radius:22px;padding:16px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;border-top:8px solid var(--plant)}
+.finder h2{font-size:1.3rem}
+.finder h2:focus{outline:none}
+.finder p{margin:0}
+.qopts{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:10px}
+.qopt{border:2px solid var(--line);background:var(--bg);border-radius:18px;padding:8px 8px 10px;display:flex;flex-direction:column;align-items:center;gap:7px;font-weight:800;text-align:center;line-height:1.25}
+.qopt:hover{border-color:var(--focus)}
+.qopt .leafpic{border-radius:12px;--pad:10px}
 .foot{text-align:center;font-size:.85rem;color:var(--muted);padding:8px 0}
 .foot a{color:inherit}
 @media(prefers-reduced-motion:no-preference){.card{transition:transform .15s}.fab{transition:transform .1s}}
@@ -321,6 +348,7 @@ textarea.input{min-height:84px;resize:vertical}
 <div class="wrap" id="app"></div>
 <button class="fab" id="fab" data-act="new" type="button"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Log a find</button>
 <div class="veil" id="veil" hidden><div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-h"></div></div>
+<script src="/leaves.js"></script>
 <noscript><p style="padding:20px">Nature Spotters needs JavaScript turned on.</p></noscript>
 
 <script>
@@ -368,7 +396,7 @@ var MONTHN=["January","February","March","April","May","June","July","August","S
 var HMONTHN=["Muharram","Safar","Rabi al-Awwal","Rabi al-Thani","Jumada al-Ula","Jumada al-Akhirah","Rajab","Sha'ban","Ramadan","Shawwal","Dhul Qa'dah","Dhul Hijjah"];
 var PIN='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
 
-var S={tab:"journal",cat:"all",year:"all",items:[],loaded:false,dbOn:false,loadErr:"",sheet:null,clearAsk:false};
+var S={tab:"journal",cat:"all",year:"all",items:[],loaded:false,dbOn:false,loadErr:"",sheet:null,clearAsk:false,leafKind:"all",keyOn:false,key:{},keyOrder:[]};
 var idb=null,URLS={};
 
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
@@ -480,15 +508,15 @@ function render(){
    +'<blockquote>"And of His signs is the creation of the heavens and the earth and what He has dispersed throughout them of creatures. And He, for gathering them when He wills, is competent."</blockquote>'
    +'<figcaption>Surah Ash-Shūrā 42:29</figcaption></figure>';
   if(!SET.saved)h+='<div class="banner">'+(SET.place?'Are you in '+esc(SET.place)+'? ':"")+'Set your place so the seasons and ideas match where you live. <button class="btn ghost" data-act="loc" type="button">Set my place</button></div>';
-  h+='<nav class="tabs" role="tablist" aria-label="Sections">'+[["journal","Journal"],["seasons","Seasons"]].map(function(t){
+  h+='<nav class="tabs" role="tablist" aria-label="Sections">'+[["journal","Journal"],["leaves","Leaves"],["seasons","Seasons"]].map(function(t){
     return '<button class="tab" role="tab" data-act="tab" data-v="'+t[0]+'" aria-selected="'+(S.tab===t[0])+'">'+t[1]+'</button>'}).join("")+'</nav>';
   var yrs={};S.items.forEach(function(i){var y=parts(i.date).y;if(y)yrs[y]=1});
   var yl=Object.keys(yrs).map(Number).sort(function(a,b){return b-a});
   if(S.year!=="all"&&yl.indexOf(S.year)<0)S.year="all";
-  if(yl.length>1)h+='<div class="row" role="group" aria-label="Choose a year"><button class="chip" data-act="year" data-v="all" aria-pressed="'+(S.year==="all")+'">All years</button>'+yl.map(function(y){return '<button class="chip" data-act="year" data-v="'+y+'" aria-pressed="'+(S.year===y)+'">'+y+'</button>'}).join("")+'</div>';
+  if(yl.length>1&&S.tab!=="leaves")h+='<div class="row" role="group" aria-label="Choose a year"><button class="chip" data-act="year" data-v="all" aria-pressed="'+(S.year==="all")+'">All years</button>'+yl.map(function(y){return '<button class="chip" data-act="year" data-v="'+y+'" aria-pressed="'+(S.year===y)+'">'+y+'</button>'}).join("")+'</div>';
   if(S.loadErr)h+='<div class="banner">'+esc(S.loadErr)+'</div>';
   else if(S.loaded&&!S.dbOn)h+='<div class="banner">Saving is not available in this browser, so finds will disappear when you close the page.</div>';
-  h+=S.tab==="seasons"?viewSeasons(cs):viewJournal(cs);
+  h+=S.tab==="seasons"?viewSeasons(cs):S.tab==="leaves"?viewLeaves():viewJournal(cs);
   h+='<footer class="foot">Your finds and photos are saved only on this device. Made by <a href="https://ummahapps.ai/">Ummah Apps</a>.</footer>';
   stopPlay();document.getElementById("app").innerHTML=h;
   document.querySelectorAll(".car").forEach(function(c){c.scrollLeft=(+c.dataset.first||0)*c.clientWidth});
@@ -523,8 +551,61 @@ function viewJournal(cs){
   }
   return h;
 }
+/* ---------- leaves ---------- */
+var NL=window.NSLeaves||null;
+var KINDS=[["all","All"],["tree","Trees"],["bush","Bushes, hedges & climbers"],["conifer","Conifers"]];
+var KINDN={tree:"Tree",bush:"Bush",conifer:"Conifer"};
+function leafOf(name){
+  if(!NL)return null;var n=norm(name);if(!n)return null;
+  for(var i=0;i<NL.LEAVES.length;i++){var sp=NL.LEAVES[i],keys=[sp.name].concat(sp.alias||[]);
+    for(var j=0;j<keys.length;j++){var k=norm(keys[j]);if(n===k||n.indexOf(k+" ")===0)return sp}}
+  return null;
+}
+function foundLeaves(){var by={},n=0;S.items.forEach(function(i){var sp=leafOf(i.name);if(sp){if(!by[sp.id])n++;by[sp.id]=(by[sp.id]||0)+1}});return {by:by,n:n}}
+function leafCard(sp,found){
+  return '<button class="card" data-act="leaf" data-id="'+sp.id+'"><span class="leafpic">'+NL.sketch(sp)+'</span>'
+   +'<div class="body"><span class="tag k-'+sp.kind+'">'+(sp.label||KINDN[sp.kind])+'</span><h3>'+esc(sp.name)+'</h3><span class="meta"><i>'+esc(sp.latin)+'</i></span>'
+   +(found.by[sp.id]?'<span class="tag said">Found &#10003;</span>':"")+'</div></button>';
+}
+function viewLeaves(){
+  if(!NL)return '<div class="empty"><p>The leaf guide could not load. Reload the page to try again.</p></div>';
+  var found=foundLeaves(),h='<section class="finder" aria-labelledby="fh">',list;
+  if(!S.keyOn){
+    h+='<h2 id="fh" tabindex="-1">Found a leaf? Which tree is it from?</h2><p class="muted">Answer a few easy questions and the leaf finder will narrow it down.</p>'
+      +'<div class="row"><button class="btn" data-act="key-start">Start the leaf finder</button></div>';
+  }else{
+    var nq=NL.nextQ(S.key),left=NL.matches(S.key);
+    var done=S.keyOrder.map(function(id){var q=NL.KEY.filter(function(x){return x.id===id})[0],o=q.opts.filter(function(x){return x[0]===S.key[id]})[0];return o?o[1]:"Not sure"});
+    if(done.length)h+='<div class="kinds" aria-label="Your answers">'+done.map(function(d){return '<span class="kind">'+esc(d)+'</span>'}).join("")+'</div>';
+    if(nq){
+      h+='<h2 id="fh" tabindex="-1">'+esc(nq.q.q)+'</h2><div class="qopts">'+nq.opts.map(function(o){
+          return '<button class="qopt" data-act="key-ans" data-q="'+nq.q.id+'" data-v="'+o[0]+'"><span class="leafpic">'+NL.sketch(NL.BY[o[2]])+'</span>'+esc(o[1])+'</button>'}).join("")+'</div>'
+        +'<div class="row"><button class="btn ghost" data-act="key-ans" data-q="'+nq.q.id+'" data-v="any">Not sure</button>'
+        +(S.keyOrder.length?'<button class="btn ghost" data-act="key-back">Back</button>':"")
+        +'<button class="btn ghost" data-act="key-stop">Stop</button><span class="muted small">'+left.length+' still possible</span></div>';
+    }else{
+      h+='<h2 id="fh" tabindex="-1">'+(left.length===1?"It looks like "+esc(left[0].name)+"!":left.length?"It could be one of these "+left.length:"None of our leaves match")+'</h2>'
+        +'<p class="muted">'+(left.length?"Tap a leaf to check the clues, then log your find.":"Go back and try a different answer. It might be a tree that is not in the guide yet.")+'</p>'
+        +'<div class="row">'+(S.keyOrder.length?'<button class="btn ghost" data-act="key-back">Back</button>':"")+'<button class="btn ghost" data-act="key-start">Start again</button><button class="btn ghost" data-act="key-stop">Done</button></div>';
+    }
+  }
+  h+='</section>';
+  if(S.keyOn){
+    list=NL.matches(S.key);
+    h+='<div class="section-h"><h2>'+(list.length===NL.LEAVES.length?"All the leaves":"Still possible")+'</h2><span class="muted small">'+list.length+' of '+NL.LEAVES.length+'</span></div>';
+  }else{
+    h+='<div class="section-h"><h2>Leaves of England</h2><span class="muted small">You have found '+found.n+' of '+NL.LEAVES.length+'</span></div>'
+      +'<div class="row" role="group" aria-label="Filter leaves">'+KINDS.map(function(k){return '<button class="chip" data-act="lkind" data-v="'+k[0]+'" aria-pressed="'+(S.leafKind===k[0])+'">'+k[1]+'</button>'}).join("")+'</div>';
+    list=NL.LEAVES.filter(function(sp){return S.leafKind==="all"||sp.kind===S.leafKind});
+  }
+  if(list.length)h+='<div class="grid leaves">'+list.map(function(sp){return leafCard(sp,found)}).join("")+'</div>';
+  h+='<div class="banner">Look, sketch and photograph, but never eat leaves or berries. Some, like yew, holly and cherry laurel, are poisonous.</div>';
+  return h;
+}
+function focusFinder(){var f=document.getElementById("fh");if(f){try{f.focus({preventScroll:true})}catch(e){}var box=f.closest(".finder"),r=box.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.6)box.scrollIntoView({block:"start",behavior:"smooth"})}}
 function thumb(it,cls){
-  var u=purl(it.photo);
+  var u=purl(it.photo),sp=!u&&leafOf(it.name);
+  if(sp)return '<div class="'+cls+' paper">'+NL.sketch(sp)+'</div>';
   return '<div class="'+cls+' cat-'+it.cat+'">'+icon(it.cat)+(u?'<img src="'+esc(u)+'" alt="" loading="lazy" onerror="this.remove()">':"")+'</div>';
 }
 function card(it){
@@ -624,6 +705,15 @@ function drawSheet(){
        :'<div class="row"><button class="btn" data-act="edit">Edit</button><button class="btn ghost" data-act="del-ask">Delete</button><button class="btn ghost" data-act="close" style="margin-left:auto">Close</button></div>');
     return;
   }
+  if(f.mode==="leaf"){
+    var sp=f.sp,n=foundLeaves().by[sp.id]||0;
+    el.innerHTML='<div class="leafpic big">'+NL.sketch(sp)+'</div>'
+     +'<div class="row"><span class="tag k-'+sp.kind+'">'+(sp.label||KINDN[sp.kind])+'</span>'+(n?'<span class="tag said">Found '+n+(n===1?" time":" times")+'</span>':"")+'</div>'
+     +'<h2 id="sheet-h">'+esc(sp.name)+'</h2><div class="meta"><i>'+esc(sp.latin)+'</i></div>'
+     +'<dl class="kv"><dt>Look for</dt><dd>'+esc(sp.look)+'</dd><dt>Also look for</dt><dd>'+esc(sp.find)+'</dd><dt>Where</dt><dd>'+esc(sp.where)+'</dd><dt>Did you know?</dt><dd>'+esc(sp.fact)+'</dd></dl>'
+     +'<div class="row"><button class="btn" data-act="leaf-log" data-id="'+sp.id+'">I found one!</button><button class="btn ghost" data-act="close" style="margin-left:auto">Close</button></div>';
+    return;
+  }
   if(f.mode==="settings"){
     var adjs=[[-1,"One day earlier"],[0,"As shown"],[1,"One day later"]];
     el.innerHTML='<h2 id="sheet-h">Where do you explore?</h2>'
@@ -640,7 +730,7 @@ function drawSheet(){
   el.innerHTML='<h2 id="sheet-h">'+(f.mode==="edit"?"Edit this find":"What did you find?")+'</h2>'
    +'<div class="field"><span class="legend" id="catl">Pick a group</span><div class="cats" role="group" aria-labelledby="catl">'
    +CATS.map(function(c){return '<button type="button" class="catbtn cat-'+c.id+'" data-act="pick" data-c="'+c.id+'" aria-pressed="'+(f.cat===c.id)+'">'+tile(c.id)+esc(c.name)+'</button>'}).join("")+'</div></div>'
-   +'<div class="field"><label for="f-name">Name</label><input class="input" id="f-name" maxlength="80" list="names" autocomplete="off" placeholder="Mushroom, robin, red leaf..." value="'+esc(f.name)+'"><datalist id="names">'+kindsMap().map(function(k){return '<option value="'+esc(k.name)+'">'}).join("")+'</datalist></div>'
+   +'<div class="field"><label for="f-name">Name</label><input class="input" id="f-name" maxlength="80" list="names" autocomplete="off" placeholder="Mushroom, robin, red leaf..." value="'+esc(f.name)+'"><datalist id="names">'+nameList().map(function(k){return '<option value="'+esc(k)+'">'}).join("")+'</datalist></div>'
    +'<div class="field"><span class="legend" id="pl">Where are you?</span>'+(placeList().length?'<div class="row" role="group" aria-labelledby="pl">'+placeList().map(function(p){return '<button type="button" class="chip" data-act="place" data-p="'+esc(p)+'" aria-pressed="'+(f.place===p)+'">'+esc(p)+'</button>'}).join("")+'</div>':"")+'<input class="input" id="f-place" maxlength="80" autocomplete="off" aria-labelledby="pl" placeholder="'+(placeList().length?"Or type your own place":"Garden, park, beach...")+'" value="'+esc(f.place)+'"></div>'
    +'<div class="field"><span class="legend" id="sayl">What did it make you say?</span>'+sayButtons(f.said)+'</div>'
    +(f.more?'<div class="field"><label for="f-date">Date</label><input class="input" id="f-date" type="date" max="'+todayStr()+'" value="'+esc(f.date)+'"></div>'
@@ -652,6 +742,7 @@ function drawSheet(){
    +(f.err?'<p class="err" role="alert">'+esc(f.err)+'</p>':"")
    +'<div class="row"><button class="btn" data-act="save"'+(f.busy?" disabled":"")+'>'+(f.busy?"Saving...":"Save find")+'</button><button class="btn ghost" data-act="close">Cancel</button></div>';
 }
+function nameList(){var seen={},out=[];kindsMap().map(function(k){return k.name}).concat(NL?NL.LEAVES.map(function(sp){return sp.name}):[]).forEach(function(n){if(!seen[norm(n)]){seen[norm(n)]=1;out.push(n)}});return out}
 function readForm(){
   var f=S.sheet,g=function(id,k){var e=document.getElementById(id);if(e&&(e.value||k!=="date"))f[k]=e.value};
   if(f.mode==="settings"){g("f-loc","place");g("f-places","places");return}
@@ -764,6 +855,13 @@ document.addEventListener("click",function(e){
   if(a==="cat"){S.cat=t.getAttribute("data-c");render();return}
   if(a==="new"){openSheet(blank());return}
   if(a==="idea"){openSheet(blank({name:t.getAttribute("data-n"),cat:t.getAttribute("data-c")}));return}
+  if(a==="key-start"){S.keyOn=true;S.key={};S.keyOrder=[];render();focusFinder();return}
+  if(a==="key-ans"){var kq=t.getAttribute("data-q");S.key[kq]=t.getAttribute("data-v");S.keyOrder.push(kq);render();focusFinder();return}
+  if(a==="key-back"){var kb=S.keyOrder.pop();if(kb)delete S.key[kb];render();focusFinder();return}
+  if(a==="key-stop"){S.keyOn=false;render();focusFinder();return}
+  if(a==="lkind"){S.leafKind=t.getAttribute("data-v");render();return}
+  if(a==="leaf"){var lsp=NL&&NL.BY[t.getAttribute("data-id")];if(lsp)openSheet({mode:"leaf",sp:lsp});return}
+  if(a==="leaf-log"){var lg=NL.BY[t.getAttribute("data-id")];openSheet(blank({name:lg.name,cat:"plant"}));return}
   if(a==="loc"){openSheet({mode:"settings",place:SET.place||"",hemi:SET.hemi,places:(SET.places||[]).join("\n"),adj:+SET.hijriAdj||0});return}
   if(a==="hemi"){readForm();S.sheet.hemi=t.getAttribute("data-v");drawSheet();return}
   if(a==="adj"){readForm();S.sheet.adj=+t.getAttribute("data-v");drawSheet();return}
@@ -805,8 +903,8 @@ document.addEventListener("keydown",function(e){
   if(e.key==="Escape"&&S.sheet)closeSheet();
 });
 document.getElementById("veil").addEventListener("click",function(e){if(e.target.id==="veil")closeSheet()});
-window.addEventListener("hashchange",function(){var h=location.hash.slice(1);if(["journal","seasons"].indexOf(h)>-1){S.tab=h;render()}});
-(function(){var h=location.hash.slice(1);if(["journal","seasons"].indexOf(h)>-1)S.tab=h})();
+window.addEventListener("hashchange",function(){var h=location.hash.slice(1);if(["journal","leaves","seasons"].indexOf(h)>-1){S.tab=h;render()}});
+(function(){var h=location.hash.slice(1);if(["journal","leaves","seasons"].indexOf(h)>-1)S.tab=h})();
 
 /* ---------- start ---------- */
 render();
