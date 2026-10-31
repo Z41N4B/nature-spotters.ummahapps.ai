@@ -136,17 +136,75 @@ function addCypress(bd,o,cx,cy,S){
   addSimple(bd,sc,cx,cy-.6*S,S*.4,0);
 }
 var DRAW={s:addSimple,p:addPalm,fan:addFan,pn:addPinnate,h:addHand,pine:addPine,yew:addYew,spruce:addSpruce,larch:addLarch,cypress:addCypress};
+/* ---------- pencil look ----------
+   Graphite outline and veins, coloured-pencil hatching inside, all roughened by two shared SVG filters. */
+var GRAPHITE="#47433D",STEM="#8A5A34";
+var PENCIL={
+ oak:["#8DB255","#4E6E2A"],beech:["#9ACB5B","#4C7A2A"],hornbeam:["#8CC45E","#46792D"],birch:["#9CD067","#4F8A2E"],
+ holly:["#3F7A45","#1F4A2A"],ivy:["#4E7F45","#27482A"],laurel:["#4F8D4A","#285A2B"],privet:["#5F9750","#2F5E2C"],
+ yew:["#3D6B3F","#24452A"],pine:["#6F9E7A","#2F5C44"],spruce:["#5E8F5A","#2E5530"],larch:["#A8CF6A","#5E8A33"],leyland:["#6B9A4E","#355E2A"],
+ whitebeam:["#A9C59A","#5F7D55"],willow:["#A3C28A","#5D7F4B"],goatwillow:["#94B07A","#55703F"],buddleia:["#8FAE80","#4E6B47"],
+ ginkgo:["#D3D45A","#93942A"],fieldmaple:["#B3CC5A","#6E8A2C"],norwaymaple:["#7FC25E","#3D7A2F"],sycamore:["#86B95A","#45742C"],
+ plane:["#8FBF63","#4E7D33"],hawthorn:["#7DB85A","#3F7230"],elder:["#86B860","#45722F"],rose:["#7FB55C","#3E6E2E"],
+ bramble:["#78A957","#3B652C"],chestnut:["#93C35E","#4B7A2C"],lime:["#9BCB66","#52832F"],poplar:["#8FC46A","#477C33"]
+};
+var DEFAULT_PENCIL=["#88BE5E","#43762F"];
+function rnd(seed){var r=seed;return function(){r=(r*9301+49297)%233280;return r/233280}}
+function hatch(x0,y0,w,h,deg,step,seed){
+  var a=deg*Math.PI/180,dx=Math.cos(a),dy=Math.sin(a),nx=-dy,ny=dx,cx=x0+w/2,cy=y0+h/2,R=Math.sqrt(w*w+h*h)/2,out=[[],[],[]],rn=rnd(seed);
+  for(var o=-R;o<=R;o+=step){
+    var t=-R+rn()*R*.15;
+    while(t<R){
+      var len=R*(.25+rn()*.45),j=(rn()-.5)*step*.7,px=cx+nx*(o+j),py=cy+ny*(o+j),bow=(rn()-.5)*step*.8;
+      var x1=px+dx*t,y1=py+dy*t,x2=px+dx*(t+len),y2=py+dy*(t+len),mx=(x1+x2)/2+nx*bow,my=(y1+y2)/2+ny*bow;
+      out[Math.floor(rn()*3)].push("M"+x1.toFixed(1)+" "+y1.toFixed(1)+"Q"+mx.toFixed(1)+" "+my.toFixed(1)+" "+x2.toFixed(1)+" "+y2.toFixed(1));
+      t+=len+R*(rn()*.08);
+    }
+  }
+  return out.map(function(b){return b.join("")});
+}
+function seedOf(id){var h=7;for(var i=0;i<id.length;i++)h=(h*31+id.charCodeAt(i))%233280;return h}
+/* filters are shared by every sketch on the page, so they live in one hidden svg */
+function ensureDefs(){
+  if(document.getElementById("ns-pencil-defs"))return;
+  var d=document.createElement("div");
+  d.innerHTML='<svg id="ns-pencil-defs" width="0" height="0" style="position:absolute;width:0;height:0" aria-hidden="true" focusable="false"><defs>'
+   +'<filter id="ns-pencil" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".09" numOctaves="2" seed="4" result="w"/>'
+   +'<feDisplacementMap in="SourceGraphic" in2="w" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="d"/>'
+   +'<feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="9" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.7 1.75" result="ga"/>'
+   +'<feComposite in="d" in2="ga" operator="in"/></filter>'
+   +'<filter id="ns-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" seed="2" result="g"/>'
+   +'<feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 1.6" result="ga"/><feComposite in="SourceGraphic" in2="ga" operator="in"/></filter>'
+   +'</defs></svg>';
+  (document.body||document.documentElement).appendChild(d.firstChild);
+}
 var cache={};
 function sketch(sp){
   if(!sp)return "";
   if(cache[sp.id])return cache[sp.id];
+  ensureDefs();
   var bd=new Board(),o=sp.sk;DRAW[o.t](bd,o,0,0,100,0);
-  var p=8,vb=[(bd.x0-p),(bd.y0-p),(bd.x1-bd.x0+2*p),(bd.y1-bd.y0+2*p)].map(function(v){return v.toFixed(1)}).join(" ");
-  var paths=function(list,extra){return list.map(function(d){return '<path d="'+d+'"'+(extra||"")+'/>'}).join("")};
-  return cache[sp.id]='<svg class="lf" viewBox="'+vb+'" preserveAspectRatio="xMidYMid meet" aria-hidden="true">'
-    +'<g class="lf-sk" transform="translate(1.6 1.1)">'+paths(bd.f)+'</g>'
-    +bd.n.map(function(x){return '<path class="lf-'+x[2]+'" d="'+x[0]+'" style="stroke-width:'+x[1]+'px"/>'}).join("")
-    +'<g class="lf-f">'+paths(bd.f)+'</g><g class="lf-v">'+paths(bd.v)+'</g></svg>';
+  var p=8,w=bd.x1-bd.x0,h=bd.y1-bd.y0,big=Math.max(w,h),vb=[(bd.x0-p),(bd.y0-p),(w+2*p),(h+2*p)].map(function(v){return v.toFixed(1)}).join(" ");
+  var col=PENCIL[sp.id]||DEFAULT_PENCIL,seed=seedOf(sp.id),cid="nslc-"+sp.id,mid="nslm-"+sp.id,fills=bd.f.join("");
+  var strokes=function(b,c,wd,ops){return b.map(function(d,i){return d?line(d,c,wd,ops[i]):""}).join("")};
+  var stems=bd.n.filter(function(x){return x[2]==="stem"}),needles=bd.n.filter(function(x){return x[2]==="needle"});
+  var line=function(d,c,wd,op){return '<path d="'+d+'" fill="none" stroke="'+c+'" stroke-width="'+wd+'"'+(op<1?' opacity="'+op+'"':"")+'/>'};
+  var s='<svg class="lf" viewBox="'+vb+'" preserveAspectRatio="xMidYMid meet" aria-hidden="true">';
+  if(fills){
+    s+='<defs><clipPath id="'+cid+'"><path d="'+fills+'"/></clipPath>'
+      +'<linearGradient id="'+mid+'g" x1="0" y1="0" x2="1" y2=".35"><stop offset=".2" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient>'
+      +'<mask id="'+mid+'" maskUnits="userSpaceOnUse" x="'+(bd.x0-p)+'" y="'+(bd.y0-p)+'" width="'+(w+2*p)+'" height="'+(h+2*p)+'"><rect x="'+(bd.x0-p)+'" y="'+(bd.y0-p)+'" width="'+(w+2*p)+'" height="'+(h+2*p)+'" fill="url(#'+mid+'g)"/></mask></defs>'
+      +'<g clip-path="url(#'+cid+')"><path d="'+fills+'" fill="'+col[0]+'" opacity=".38" filter="url(#ns-grain)"/>'
+      +'<g filter="url(#ns-pencil)">'+strokes(hatch(bd.x0,bd.y0,w,h,38,big/58,seed),col[0],1.3,[.45,.7,.95])
+      +'<g mask="url(#'+mid+')">'+strokes(hatch(bd.x0,bd.y0,w,h,44,big/50,seed+1),col[1],1.3,[.5,.75,1])+'</g></g></g>';
+  }
+  s+='<g filter="url(#ns-pencil)">'
+    +needles.map(function(x){return line(x[0],col[0],x[1]+1.4,.7)+line(x[0],col[1],x[1]*.8,1)}).join("")
+    +stems.map(function(x){return line(x[0],STEM,x[1],.9)}).join("")
+    +(bd.v.length?line(bd.v.join(""),col[1],.8,.85):"")
+    +(fills?'<path d="'+fills+'" fill="none" stroke="'+GRAPHITE+'" stroke-width=".9" opacity=".4" transform="translate(1.4 .9)"/>'+line(fills,GRAPHITE,1.6,.95):"")
+    +'</g></svg>';
+  return cache[sp.id]=s;
 }
 
 /* ---------- the leaves ----------

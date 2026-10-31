@@ -98,7 +98,7 @@
   --spring:#2FB45F; --summer:#F2A900; --autumn:#E5601A; --winter:#3F86DB;
   --h-spring:#CDEFD6; --h-summer:#FFE6A0; --h-autumn:#FFD3B5; --h-winter:#CFE3FA;
   --shadow:0 2px 0 rgba(18,38,58,.08),0 8px 20px -12px rgba(18,38,58,.25);
-  --paper:#FBF7EA; --paper-line:rgba(43,134,236,.08); --lf-fill:#D6EDC8; --lf-ink:#2E5E2A; --lf-stem:#7A5230; --lf-needle:#2E6B3A;
+  --paper:#FBF7EA; --paper-line:rgba(43,134,236,.08);
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -106,14 +106,14 @@
   --focus:#7DB2FF; --danger:#FF8A94;
   --h-spring:#1B4A32; --h-summer:#5A4300; --h-autumn:#5A2A10; --h-winter:#1B3A5E;
   --shadow:0 2px 0 rgba(0,0,0,.3),0 8px 20px -12px rgba(0,0,0,.6);
-  --paper:#1C2B22; --paper-line:rgba(255,255,255,.05); --lf-fill:#35563A; --lf-ink:#CDEBC0; --lf-stem:#D2A679; --lf-needle:#9FD8A6;
+  --paper:#E6E0CF; --paper-line:rgba(43,134,236,.1);
   color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0D1B2A; --surface:#16293B; --ink:#EAF2F9; --muted:#9FB3C5; --line:#294259; --soft:#1D3348;
   --focus:#7DB2FF; --danger:#FF8A94;
   --h-spring:#1B4A32; --h-summer:#5A4300; --h-autumn:#5A2A10; --h-winter:#1B3A5E;
   --shadow:0 2px 0 rgba(0,0,0,.3),0 8px 20px -12px rgba(0,0,0,.6);
-  --paper:#1C2B22; --paper-line:rgba(255,255,255,.05); --lf-fill:#35563A; --lf-ink:#CDEBC0; --lf-stem:#D2A679; --lf-needle:#9FD8A6;
+  --paper:#E6E0CF; --paper-line:rgba(43,134,236,.1);
   color-scheme:dark}
 
 *{box-sizing:border-box}
@@ -320,12 +320,7 @@ textarea.input{min-height:84px;resize:vertical}
 .leafpic .lf{position:absolute;left:var(--pad);top:var(--pad);width:calc(100% - 2*var(--pad));height:calc(100% - 2*var(--pad))}
 .leafpic.big{aspect-ratio:4/3;border-radius:18px;flex:none;--pad:18px}
 .lf{width:100%;height:100%;overflow:visible}
-.lf path{vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round;fill:none;stroke:var(--lf-ink)}
-.lf-f path{fill:var(--lf-fill);stroke-width:1.6px}
-.lf-sk path{stroke-width:1px;opacity:.3}
-.lf-v path{stroke-width:.75px;opacity:.7}
-.lf path.lf-stem{stroke:var(--lf-stem)}
-.lf path.lf-needle{stroke:var(--lf-needle)}
+.lf path{vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
 .thumb.paper,.big-photo.paper{background-color:var(--paper)}
 .thumb.paper .lf{width:72%;height:80%;opacity:1}
 .big-photo.paper .lf{width:62%;height:82%}
